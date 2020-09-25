@@ -3,12 +3,13 @@ const databaseInt = require("./database");
 function subscribeHandler(db) {
 	return function(req, res) {
 		reqObj = req.body;
+		console.log(req.params);
 		databaseInt.subscribeUser(
 			db,
-			reqObj.mail,
+			req.query.mail,
 			Date.now(),
 			0,
-			reqObj.difficulty,
+			req.query.difficulty,
 			false
 		);
 		res.send("OK");
@@ -17,14 +18,14 @@ function subscribeHandler(db) {
 function unsubscribeHandler(db) {
 	return function(req, res) {
 		reqObj = req.body;
-		databaseInt.unsubscribeUser(db, reqObj.mail);
+		databaseInt.unsubscribeUser(db, req.query.mail);
 		res.send("OK");
 	};
 }
 function activatePremiumUserHandler(db) {
 	return function(req, res) {
 		reqObj = req.body;
-		databaseInt.addPremium(db, reqObj.mail);
+		databaseInt.addPremium(db, req.query.mail);
 		res.send("ok");
 	};
 }
