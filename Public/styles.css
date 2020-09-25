@@ -178,15 +178,15 @@ div.brackets a:hover:before, div.brackets a:hover:after
 .Section{
     color:   #242592;
     background-color:  whitesmoke;
-    height: 30%;
-    top: 50%;
+    height: 50%;
+    top: 60%;
     position: absolute;
     width: 100%;
 }
 .Section2{
     color:   transparent;
     background-color: whitesmoke;
-    height: 80%;
+    height: 70%;
     top: 80%;
     position: absolute;
     width: 100%;
@@ -195,7 +195,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
     color:   #242592;
     background-color:  transparent;
     height: 70%;
-    top: 190%;
+    top: 150%;
     position: absolute;
     width: 100%;
 }
@@ -204,6 +204,13 @@ div.brackets a:hover:before, div.brackets a:hover:after
 }
 .SectionText h1{
     text-align: center;
+    font-size: 4.5vmin;
+    width: 100%;
+    color: #242592;
+    
+}
+.SectionText h2{
+    text-align: center;
     font-size: 4vmin;
     width: 100%;
     color: #242592;
@@ -211,6 +218,33 @@ div.brackets a:hover:before, div.brackets a:hover:after
 }
 .SectionText p1{
     color: #242592;
+    text-align: start;
+    position: absolute;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 2vmin;
+    
+    
+}
+.SectionText2{
+    font-family: Raleway;
+}
+.SectionText2 h1{
+    text-align: center;
+    font-size: 4.5vmin;
+    width: 100%;
+    color: whitesmoke;
+    
+}
+.SectionText2 h2{
+    text-align: center;
+    font-size: 4vmin;
+    width: 100%;
+    color: whitesmoke;
+    
+}
+.SectionText2 p1{
+    color: whitesmoke;
     text-align: start;
     position: absolute;
     padding-left: 2%;
@@ -483,7 +517,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
 background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%);
     font-family: Raleway;
     position: absolute;
-    top:25%;
+    top:10%;
     left: 10%;
     height: 40vh;
     width: 20vw;
@@ -510,7 +544,7 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
 background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%);
     position: absolute; 
     font-family: Raleway;
-    top:25%;
+    top:10%;
     left: 40%;
     height: 40vh;
     width: 20vw;
@@ -536,10 +570,10 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
     background: rgb(36,37,146);
 background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%);
     position: absolute;
-    top:25%;
+    top:10%;
     left: 70%;
     font-family: Raleway;
-    height: 50%;
+    height: 40vh;
     width: 20%;
     border-radius: 50px;
 }

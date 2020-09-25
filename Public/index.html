@@ -43,9 +43,8 @@
 </div>
   <div class = "Section">
     <div class = "SectionText">
-      <h1> Practice makes perfect. Why not practice every day then? </h1>
-      <p1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis rhoncus lectus. Sed facilisis, lectus id pellentesque egestas, libero mauris luctus diam, ac pretium risus est hendrerit eros. Sed vel leo diam. Suspendisse accumsan nulla eget accumsan tempor. Vivamus tempus sed mi vel facilisis. Cras dignissim libero nisi, ac pharetra turpis gravida sit amet. Nam porta, nisi vel pharetra finibus, purus nibh facilisis lorem, vitae convallis magna elit vitae odio. Donec justo nisi, mattis sed sagittis a, euismod quis arcu. Etiam dapibus orci ac augue egestas, id ultricies tellus interdum. Curabitur vitae ultricies erat, et ultrices justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam et venenatis nulla. Nullam tristique libero sed turpis posuere, a accumsan justo auctor. Phasellus sit amet eros eleifend, finibus justo quis, mattis felis.
-iam pellentesque vel ipsum sed iaculis.</p1>
+      <h1> We provide free coding problems via an email-based subscription. </h1>
+      <h2>The problems can be broken down in 3 main categories</h2>
     </div>
   </div>
   <div class="Section2" >
@@ -60,46 +59,24 @@ iam pellentesque vel ipsum sed iaculis.</p1>
     data-aos-offset="200"
     data-aos-delay="600"
     data-aos-duration="1000">
-    <h1> Interview Algorithm Questions </h1>
-      <p> Up your rating on Codeforces, CodeChef, Timus and many other platforms and become a master of algorithms and data structures. Problems for every level.</p>
+    <h1> Interview<br> Questions </h1>
+      <p> Prepare for incoming interviews at FANG or Start-ups. Real life problems given in recent years during practical interviews. Impress your examinator with your technical proficiency. </p>
     </div>
     <div class = "Card3" data-aos="fade-up"
     data-aos-offset="200"
     data-aos-delay="1000"
     data-aos-duration="1000">
     <h1> Data Structures Knowledge </h1>
-      <p> Up your rating on Codeforces, CodeChef, Timus and many other platforms and become a master of algorithms and data structures. Problems for every level.</p>
+      <p> Queue, Deque, Linked List, Stack, BST, Heap, Trie. Are you confused yet? You wont be in 30 days time. Get a deeper understanding of these structures and learn how to use them.</p>
     </div>
   </div>
   <div class="Section3" >
-    <div class = "PriceTag">
-      <h1>2 week free trial</h1>
-      <h2> then 2.49$ billed monthly </h2>
+    <div class = "SectionText2">
+      <h1> Practice makes perfect.Why not practice every day then?</h1>
     </div>
-    <div id="paypal-button-container" style="margin-left: auto; margin-right: auto; width: 30%; height: 30%; top:10%; position: relative;" ></div>
-      <script src="https://www.paypal.com/sdk/js?client-id=AdnGpCWSEh4bkcztR1D_tVORcarPD4WO72HDAJO1sU-hZFJRsZgC4Dni0Kr7OfUGt1nsArQDUIX6sHEn&vault=true" data-sdk-integration-source="button-factory"></script>
-      <script>
-        paypal.Buttons({
-            style: {
-                shape: 'pill',
-                color: 'white',
-                layout: 'vertical',
-                label: 'subscribe'
-            },
-            createSubscription: function(data, actions) {
-              return actions.subscription.create({
-                'plan_id': 'P-0UU237359H2627054L5TZSOI'
-              });
-            },
-            onApprove: function(data, actions) {
-              alert(data.subscriptionID);
-              var xhr = new XMLHttpRequest();
-              xhr.open('GET', "http://5.12.105.234:8800/subscribe?mail=" + document.getElementById("Email") +"&difficulty=medium", true);
-              xhr.send(null);
-            }
-        }).render('#paypal-button-container');
-      </script>
-    <h1> Testing</h1>
+    
+  
+  
   </div>
   <script data-ad-client="ca-pub-7226771522957807" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
