@@ -1,0 +1,9 @@
+/** 
+ * Parte din .html / Nu din node
+*/
+
+function Subs() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "/subscribe?mail=" + document.getElementById("Email").value +"&difficulty=medium", false);
+    xhr.send(null);
+};

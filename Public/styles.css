@@ -1,0 +1,576 @@
+html, body
+{
+    margin: 0px;
+    background: rgb(36,37,146);
+background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%);
+}
+@font-face {
+    font-family: Raleway;
+    src: url("Fonts/Raleway/Raleway-Regular.ttf");
+  }
+header, footer
+{
+    font-family: Raleway;
+    margin: 0 auto;
+	padding: 0em 10em;
+	text-align: center;
+    background: #AAA;
+}
+.Header {
+    display: flex;
+
+    height: 1em;
+  }
+.spacer {
+  flex-grow: 1;
+}
+
+
+header h1
+{
+    color: white;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 0px;
+}
+
+header span
+{
+    color: white;
+}
+
+footer span
+{
+  color: white;
+}
+
+div.container
+{
+    background-color:  transparent;
+    font-family: Raleway;
+    margin: 0 auto;
+	padding: 1em 1em;
+    text-align: right;
+    height: 1em;
+    width: 80%;
+    
+}
+
+div.container a
+{
+    color: #F64C72;
+    text-decoration: none;
+    font: 1.2vw Raleway;
+    margin: 0px 30px;
+    padding: 0px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.red
+{
+    background: #f44336;
+}
+
+.purple
+{
+    background: #673ab7;
+}
+
+.indigo
+{
+    background: #384aaf;
+}
+
+.blue
+{
+    background: #2196f3;
+}
+
+.cyan
+{
+    background: #00bcd4;
+}
+
+.teal
+{
+    background: #009688;
+}
+
+.green
+{
+    background: #4caf50;
+}
+
+.lightGreen
+{
+    background: #8bc34a;
+}
+
+.lime
+{
+    background: #c0ca33;
+}
+
+.yellow
+{
+    background: #fdd835;
+}
+
+.amber
+{
+    background: #ffc107;
+}
+
+.orange
+{
+    background: #ff9800
+}
+
+.deepOrange
+{
+    background: #ff5722;
+}
+
+.brown
+{
+    background: #795548;
+}
+
+.gray
+{
+    background: #9e9e9e;
+}
+.white
+{
+    background: #FFF;
+}
+    div.brackets a:before, div.brackets a:after
+{
+    position: absolute;
+    opacity: 0;
+    font-size: 100%;
+    top: 0px;
+    transition: all 0.25s;
+}
+
+div.brackets a:before
+{
+    content: '';
+    left: -2px;
+    transform: translateX(10px);
+}
+
+div.brackets a:after
+{
+    content: '( )';
+    right: -0.3em;
+    transform: translateX(8px);
+}
+
+div.brackets a:hover:before, div.brackets a:hover:after
+{
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.Section{
+    color:   #242592;
+    background-color:  whitesmoke;
+    height: 30%;
+    top: 50%;
+    position: absolute;
+    width: 100%;
+}
+.Section2{
+    color:   transparent;
+    background-color: whitesmoke;
+    height: 80%;
+    top: 80%;
+    position: absolute;
+    width: 100%;
+}
+.Section3{
+    color:   #242592;
+    background-color:  transparent;
+    height: 70%;
+    top: 190%;
+    position: absolute;
+    width: 100%;
+}
+.SectionText{
+    font-family: Raleway;
+}
+.SectionText h1{
+    text-align: center;
+    font-size: 4vmin;
+    width: 100%;
+    color: #242592;
+    
+}
+.SectionText p1{
+    color: #242592;
+    text-align: start;
+    position: absolute;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 2vmin;
+    
+    
+}
+.HeaderTextBox{
+    position: absolute;
+    top:10%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: Raleway;
+}
+.HeaderTextBox h1{
+    color: white;
+    font-size: 5vmin;
+}
+.c-checkbox {
+    display: none;
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 30%;
+    font-family: Raleway;
+}
+.c-checkbox:checked + .c-formContainer .c-form {
+    width: 37.5em;
+}
+.c-checkbox:checked + .c-formContainer .c-form__toggle {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.7);
+}
+.c-checkbox:checked + .c-formContainer .c-form__input, .c-checkbox:checked + .c-formContainer .c-form__buttonLabel {
+    transition: 0.2s 0.1s;
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+.c-checkbox:not(:checked) + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle::before, .c-checkbox:checked + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle::before {
+    content: 'You have been subscribed';
+}
+.c-checkbox:not(:checked) + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle {
+    pointer-events: none;
+    cursor: default;
+}
+.c-formContainer, .c-form, .c-form__toggle {
+    width: 20em;
+    height: 6.25em;
+}
+.c-formContainer {
+    height: 30%;
+    width: 30%;
+    position: absolute;
+    top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    font-family: Raleway;
+}
+.c-form, .c-form__toggle {
+    position: absolute;
+    border-radius: 6.25em;
+    background-color: #fff;
+    transition: 0.2s;
+}
+.c-form {
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.625em;
+    box-sizing: border-box;
+    box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+}
+.c-form__toggle {
+    color:  #242592;
+    top: 0;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.c-form__toggle::before {
+    font-size: 1.75em;
+    content: attr(data-title);
+}
+.c-form__input, .c-form__button {
+    font: inherit;
+    border: 0;
+    outline: 0;
+    border-radius: 5em;
+    box-sizing: border-box;
+}
+.c-form__input, .c-form__buttonLabel {
+    font-size: 1.75em;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.7);
+    transition: 0s;
+}
+.c-form__input {
+    color:  #242592;
+    height: 100%;
+    width: 100%;
+    padding: 0 0.714em;
+}
+.c-form__input::placeholder {
+    color: currentColor;
+}
+.c-form__input:required:valid {
+    color:  #242592;
+    opacity: 60%;
+    
+}
+.c-form__input:required:valid + .c-form__buttonLabel {
+    color:  #242592;
+    
+}
+.c-form__input:required:valid + .c-form__buttonLabel::before {
+    pointer-events: initial;
+}
+.c-form__buttonLabel {
+    color:  #242592;
+    height: 100%;
+    width: auto;
+}
+.c-form__buttonLabel::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    cursor: pointer;
+}
+.c-form__button {
+    color: inherit;
+    padding: 0;
+    height: 100%;
+    width: 5em;
+    background-color: #242592;
+}
+
+.c-checkbox {
+    display: none;
+}
+.c-checkbox:checked + .c-formContainer .c-form {
+    width: 37.5em;
+}
+.c-checkbox:checked + .c-formContainer .c-form__toggle {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.7);
+}
+.c-checkbox:checked + .c-formContainer .c-form__input, .c-checkbox:checked + .c-formContainer .c-form__buttonLabel {
+    transition: 0.2s 0.1s;
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+.c-checkbox:not(:checked) + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle::before, .c-checkbox:checked + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle::before {
+    content: 'Thank You! \1F60A';
+}
+.c-checkbox:not(:checked) + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle {
+    pointer-events: none;
+    cursor: default;
+}
+.c-formContainer, .c-form, .c-form__toggle {
+    width: 20em;
+    height: 6.25em;
+}
+.c-formContainer {
+    position: relative;
+    height: 30%;
+    width: 30%;
+    font-weight: 700;
+}
+.c-form, .c-form__toggle {
+    position: absolute;
+    border-radius: 6.25em;
+    background-color: #fff;
+    transition: 0.2s;
+}
+.c-form {
+    height: 9vmin;
+    width: 29vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.625em;
+    box-sizing: border-box;
+    box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+}
+.c-form__toggle {
+    height: 9vmin;
+    width: 29vmin;
+    color:  #242592;
+    top: 0;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.c-form__toggle::before {
+    font-size: 1.75em;
+    content: attr(data-title);
+}
+.c-form__input, .c-form__button {
+    font: inherit;
+    border: 0;
+    outline: 0;
+    border-radius: 5em;
+    box-sizing: border-box;
+}
+.c-form__input, .c-form__buttonLabel {
+    font-size: 1.75em;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.7);
+    transition: 0s;
+}
+.c-form__input {
+    color: #5c5cff;
+    opacity: 50%;
+    height: 100%;
+    width: 100%;
+    padding: 0 0.714em;
+}
+.c-form__input::placeholder {
+    color: currentColor;
+}
+.c-form__input:required:valid {
+    color:  #242592;
+}
+.c-form__input:required:valid + .c-form__buttonLabel {
+    color: #fff;
+}
+.c-form__input:required:valid + .c-form__buttonLabel::before {
+    pointer-events: initial;
+}
+.c-form__buttonLabel {
+    color: white;
+    height: 100%;
+    width: auto;
+}
+.c-form__buttonLabel::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    cursor: pointer;
+}
+.c-form__button {
+    color: inherit;
+    padding: 0;
+    height: 100%;
+    width: 5em;
+    background-color:  #242592;
+}
+.Card1 {
+    background: rgb(36,37,146);
+background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%);
+    font-family: Raleway;
+    position: absolute;
+    top:25%;
+    left: 10%;
+    height: 40vh;
+    width: 20vw;
+    border-radius: 50px;
+}
+.Card1 h1{
+    text-align: center;
+    font-size: 4vmin;
+    color: #F64C72;
+    
+}
+.Card1 p{
+    text-align: center;
+    font-size: 2vmin;
+    margin-top:auto;
+    margin-bottom: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+    
+}
+.Card2 {
+    background: rgb(36,37,146);
+background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%);
+    position: absolute; 
+    font-family: Raleway;
+    top:25%;
+    left: 40%;
+    height: 40vh;
+    width: 20vw;
+    border-radius: 50px;
+}
+.Card2 h1{
+    text-align: center;
+    font-size: 4vmin;
+    color: #F64C72;
+    
+}
+.Card2 p{
+    text-align: center;
+    font-size: 2vmin;
+    margin-top:auto;
+    margin-bottom: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+    
+}
+.Card3 {
+    background: rgb(36,37,146);
+background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%);
+    position: absolute;
+    top:25%;
+    left: 70%;
+    font-family: Raleway;
+    height: 50%;
+    width: 20%;
+    border-radius: 50px;
+}
+.Card3 h1{
+    text-align: center;
+    font-size: 4vmin;
+    color: #F64C72;
+    
+}
+.Card3 p{
+    text-align: center;
+    font-size: 2vmin;
+    margin-top:auto;
+    margin-bottom: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+    
+}
+.PriceTag{
+    text-align: center;
+    position: relative;
+    font-family: Raleway;
+    padding: 0;
+    top: 10%;
+}
+.PriceTag h1{
+    padding: 0;
+    color: #F64C72;
+}
+.PriceTag h2{
+    padding: 0;
+    color: #F64C72;
+}

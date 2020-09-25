@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen"/>
+    <title>Daily Coding Question</title>
+  </head>
+  
+  <body>
+    
+    <div id="root">
+
+     <task-list> </task-list>
+
+    </div>
+    <div class = "Header">
+      <img src="Assets/logo4.png" alt="Daily Coding Question" height="100" width="200" style="margin:20px 20px">
+      <div class='spacer'></div>
+      <div class="container white brackets">
+        <a>Subscribe</a>
+        <a>What are we?</a>
+        <a>Demo</a>
+        <a>Free Trial</a>
+        <a>Testimonials</a>
+    </div>
+  </div>
+  <input class="c-checkbox" type="checkbox" id="checkbox">
+<div class="c-formContainer">
+  <form class="c-form" action="">
+    <input class="c-form__input" placeholder="E-mail" id="Email" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required >
+    <label class="c-form__buttonLabel" for="checkbox" onclick="Subs();">
+      <button class="c-form__button" type="button" id="SubscribeButton" onclick="Subs();">Subscribe</button>
+    </label>
+    <label class="c-form__toggle" for="checkbox" data-title="Subscribe">
+      <script>
+        
+      </script>
+    </label>
+  </form>
+</div>
+<div class = 'HeaderTextBox'>
+  <h1>CS problems. </h1>
+  <h1>Directly in your inbox.</h1>
+</div>
+  <div class = "Section">
+    <div class = "SectionText">
+      <h1> Practice makes perfect. Why not practice every day then? </h1>
+      <p1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis rhoncus lectus. Sed facilisis, lectus id pellentesque egestas, libero mauris luctus diam, ac pretium risus est hendrerit eros. Sed vel leo diam. Suspendisse accumsan nulla eget accumsan tempor. Vivamus tempus sed mi vel facilisis. Cras dignissim libero nisi, ac pharetra turpis gravida sit amet. Nam porta, nisi vel pharetra finibus, purus nibh facilisis lorem, vitae convallis magna elit vitae odio. Donec justo nisi, mattis sed sagittis a, euismod quis arcu. Etiam dapibus orci ac augue egestas, id ultricies tellus interdum. Curabitur vitae ultricies erat, et ultrices justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam et venenatis nulla. Nullam tristique libero sed turpis posuere, a accumsan justo auctor. Phasellus sit amet eros eleifend, finibus justo quis, mattis felis.
+iam pellentesque vel ipsum sed iaculis.</p1>
+    </div>
+  </div>
+  <div class="Section2" >
+    <div class = "Card1" data-aos="fade-up"
+    data-aos-offset="200"
+    data-aos-delay="100"
+    data-aos-duration="1000">
+      <h1> Competitive Programming </h1>
+      <p> Up your rating on Codeforces, CodeChef, Timus and many other platforms and become a master of algorithms and data structures. Problems for every level.</p>
+    </div>
+    <div class = "Card2" data-aos="fade-up"
+    data-aos-offset="200"
+    data-aos-delay="600"
+    data-aos-duration="1000">
+    <h1> Interview Algorithm Questions </h1>
+      <p> Up your rating on Codeforces, CodeChef, Timus and many other platforms and become a master of algorithms and data structures. Problems for every level.</p>
+    </div>
+    <div class = "Card3" data-aos="fade-up"
+    data-aos-offset="200"
+    data-aos-delay="1000"
+    data-aos-duration="1000">
+    <h1> Data Structures Knowledge </h1>
+      <p> Up your rating on Codeforces, CodeChef, Timus and many other platforms and become a master of algorithms and data structures. Problems for every level.</p>
+    </div>
+  </div>
+  <div class="Section3" >
+    <div class = "PriceTag">
+      <h1>2 week free trial</h1>
+      <h2> then 2.49$ billed monthly </h2>
+    </div>
+    <div id="paypal-button-container" style="margin-left: auto; margin-right: auto; width: 30%; height: 30%; top:10%; position: relative;" ></div>
+      <script src="https://www.paypal.com/sdk/js?client-id=AdnGpCWSEh4bkcztR1D_tVORcarPD4WO72HDAJO1sU-hZFJRsZgC4Dni0Kr7OfUGt1nsArQDUIX6sHEn&vault=true" data-sdk-integration-source="button-factory"></script>
+      <script>
+        paypal.Buttons({
+            style: {
+                shape: 'pill',
+                color: 'white',
+                layout: 'vertical',
+                label: 'subscribe'
+            },
+            createSubscription: function(data, actions) {
+              return actions.subscription.create({
+                'plan_id': 'P-0UU237359H2627054L5TZSOI'
+              });
+            },
+            onApprove: function(data, actions) {
+              alert(data.subscriptionID);
+              var xhr = new XMLHttpRequest();
+              xhr.open('GET', "http://5.12.105.234:8800/subscribe?mail=" + document.getElementById("Email") +"&difficulty=medium", true);
+              xhr.send(null);
+            }
+        }).render('#paypal-button-container');
+      </script>
+    <h1> Testing</h1>
+  </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+    
+  
+  </body>
+</html>
