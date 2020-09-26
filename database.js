@@ -43,7 +43,16 @@ function addPremium(rdb, mail) {
 	);
 }
 
+function sendMails(rdb) {
+	rdb.collection("users")
+		.find()
+		.forEach(function(ent) {
+			console.log("Mail sent to : ", ent.mail);
+		});
+}
+
 exports.subscribeUser = addUserToDB;
 exports.unsubscribeUser = removeUserFromDB;
 exports.init = dbSetup;
 exports.addPremium = addPremium;
+exports.sendMails = sendMails;
