@@ -27,6 +27,13 @@ async function main() {
 	app.get("/subscribe", handlers.subscribe(db));
 	app.get("/unsubscribe", handlers.unsubscribe(db));
 	app.get("/activate", handlers.activatePremium(db));
+	app.get("/", (req, res) => {
+		fs.readFile("index.html", "utf8", function(err, data) {
+			if (err) throw err;
+			adp = data.toString();
+			res.send(adp);
+		});
+	});
 	app.post("/submit-form", (req, res) => {
 		const username = req.body.username;
 		const password = req.body.password;
