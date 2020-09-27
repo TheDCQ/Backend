@@ -33,7 +33,7 @@ async function main() {
 			res.send(adp);
 		});
 	});
-	app.get("/admin", (req, res) => {
+	app.get("/admin_panel", (req, res) => {
 		fs.readFile("Admin/admin.html", "utf8", function(err, data) {
 			if (err) throw err;
 			adp = data.toString();
