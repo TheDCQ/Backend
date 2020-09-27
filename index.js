@@ -3,8 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const schedule = require("node-schedule");
-
-function init() {}
+const fs = require("fs");
 
 var ipn = require("express-ipn");
 const handlers = require("./handlers");
@@ -16,13 +15,48 @@ async function main() {
 	const [db, client] = await databaseInt.init();
 
 	var app = express();
+	app.use(
+		express.urlencoded({
+			extended: true,
+		})
+	);
 	app.use(express.json());
 	app.use(cors());
 	app.use("/", express.static(path.join(__dirname, "Public")));
+	app.use("/admin", express.static(path.join(__dirname, "Admin")));
 	app.get("/subscribe", handlers.subscribe(db));
 	app.get("/unsubscribe", handlers.unsubscribe(db));
 	app.get("/activate", handlers.activatePremium(db));
+	app.post("/submit-form", (req, res) => {
+		const username = req.body.username;
+		const password = req.body.password;
 
+		if (
+			(username == "vlad" || username == "mihai") &&
+			password == "TPWcwmgMMhf7JbLE"
+		) {
+			fs.readFile("AddProblem/add.html", "utf8", function(err, data) {
+				if (err) throw err;
+				adp = data.toString();
+				res.send(adp);
+			});
+		} else res.send("Wrong username/password");
+	});
+	app.post("/addProblem", (req, res) => {
+		if (req.body.password == "TPWcwmgMMhf7JbLE") {
+			fs.writeFile(
+				"Problemset/" + req.body.difficulty + "/" + req.body.num,
+				req.body.enunt,
+				function(err) {
+					if (err) throw err;
+					console.log("File is created successfully.");
+				}
+			);
+			res.send("OK");
+		} else {
+			res.send("NOT OK");
+		}
+	});
 	var Scheds = schedule.scheduleJob(
 		"0 0 0 * * *",
 		databaseInt.sendMails.bind(null, db)

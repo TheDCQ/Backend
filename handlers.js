@@ -38,7 +38,10 @@ function ipnHandler(err, ipnContent) {
 	}
 }
 
+function adminHandler(req, res) {}
+
 exports.subscribe = subscribeHandler;
 exports.unsubscribe = unsubscribeHandler;
 exports.activatePremium = activatePremiumUserHandler;
 exports.ipn = ipnHandler;
+exports.adminPage = adminHandler;
