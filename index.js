@@ -34,6 +34,13 @@ async function main() {
 			res.send(adp);
 		});
 	});
+	app.get("/admin", (req, res) => {
+		fs.readFile("Admin/admin.html", "utf8", function(err, data) {
+			if (err) throw err;
+			adp = data.toString();
+			res.send(adp);
+		});
+	});
 	app.post("/submit-form", (req, res) => {
 		const username = req.body.username;
 		const password = req.body.password;
