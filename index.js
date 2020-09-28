@@ -45,7 +45,9 @@ async function main() {
 		const password = req.body.password;
 
 		if (
-			(username == "vlad" || username == "mihai") &&
+			(username == "vlad" ||
+				username == "mihai" ||
+				username == "tudor") &&
 			password == "TPWcwmgMMhf7JbLE"
 		) {
 			fs.readFile("AddProblem/add.html", "utf8", function(err, data) {
