@@ -1,3 +1,4 @@
+const nodemailer = require("nodemailer");
 const { MongoClient } = require("mongodb");
 const url =
 	"mongodb+srv://admin:TPWcwmgMMhf7JbLE@thedcq.tjnx3.gcp.mongodb.net/DCQ?retryWrites=true&w=majority";
@@ -48,6 +49,26 @@ function sendMails(rdb) {
 		.find()
 		.forEach(function(ent) {
 			console.log("Mail sent to : ", ent.mail);
+			var mail = nodemailer.createTransport({
+				service: "gmail",
+				auth: {
+					user: "the.dcq.company@gmail.com",
+					pass: "dcq@mail!2020",
+				},
+			});
+			var mailOptions = {
+				from: "the.dcq.company@gmail.com",
+				to: ent.mail,
+				subject: "TheDCQ",
+				text: "Test mail",
+			};
+			mail.sendMail(mailOptions, function(error, info) {
+				if (error) {
+					console.log(error);
+				} else {
+					console.log("Email sent: " + info.response);
+				}
+			});
 		});
 }
 

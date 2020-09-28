@@ -4,7 +4,6 @@ const cors = require("cors");
 const path = require("path");
 const schedule = require("node-schedule");
 const fs = require("fs");
-
 var ipn = require("express-ipn");
 const handlers = require("./handlers");
 const databaseInt = require("./database");
