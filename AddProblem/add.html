@@ -1,14 +1,19 @@
 <html>
 	<body>
-		<label>Difficulty : </label><select name="dif" id="dif">
-			<option value="Easy">Easy</option>
-			<option value="Medium">Medium</option>
-			<option value=Hard>Hard</option>
-		<label>Title : </label>
-		<input type="text" id="num" />
-		<button onclick="addProblem();">Add Problem</button>
-		<br /><br />
-		<textarea name="text" id="texta"> </textarea>
+		<center>
+			<label>Difficulty : </label
+			><select name="dif" id="dif">
+				<option value="Easy">Easy</option>
+				<option value="Medium">Medium</option>
+				<option value="Hard">Hard</option>
+			</select>
+			<br /><br />
+			<label>Title : </label>
+			<input type="text" id="num" />
+			<button onclick="addProblem();">Add Problem</button>
+			<br /><br />
+			<textarea name="text" id="texta" cols="200" rows="47"> </textarea>
+		</center>
 	</body>
 	<script>
 		function addProblem() {
