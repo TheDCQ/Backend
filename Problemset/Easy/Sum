@@ -1,0 +1,106 @@
+ <html>
+    <head>
+
+    </head>
+    <body>
+        <div class = "Title"> <h1> The Daily Coding Question </h1></div>
+        <div class = "Subtitle"> <h2> Sum </h2></div>
+        <div class = "SubtitleLeft"> <h2> Statement </h2></div>
+        <div class = "Statement"> <p> Add two numbers.</p> </div>
+        <div class = "SubtitleLeft"> <h2> Input </h2></div>
+        <div class = "Statement"> <p> The first line contains two numbers, a and b.0 ≤ a,b ≤ 1000000 </p> </div>
+        <div class = "SubtitleLeft"> <h2>Output</h2></div>
+        <div class = "Statement"> <p>Print a line, the value of a+b. <p></div>
+        <div class = "SubtitleLeft"> <h2> Example</h2></div>
+        <div class = "IO"><h2> Input</h2></div>
+        <div class = "IOtext"> <p> 2<br> 3 4</p></div>
+        <div class = "IO"><h2> Output</h2></div>
+        <div class = "IOtext"> <p> 7</p></div>
+    </body>
+    <style>
+        @font-face {
+    font-family: Raleway;
+    src: url("Public/Fonts/Raleway/Raleway-Regular.ttf");
+  }
+        .Title{
+            width: 70%;
+            height: 10%;
+        
+        }
+        .Title h1{
+            font-family: Raleway;
+            text-align: center;
+            color: #242592;
+            font-size: 4.5vmin;
+        }
+        .Subtitle{
+            position: absolute;
+            width: 70%;
+            height: 10%;
+            top: 5%;
+        
+        }
+        .Subtitle h2{
+            width: 100%;
+            height: 10%;
+            font-size: 3.5vmin;
+            font-family: Raleway;
+            text-align: center;
+            color: #242592;
+        }
+        .SubtitleLeft{
+            position: relative;
+            width: 100%;
+            height: 5%;
+            top: 3%;
+        
+        }
+        .SubtitleLeft h2{
+            height: 10%;
+            font-size: 3vmin;
+            font-family: Raleway;
+            margin-left: 5%;
+            margin-right: 5%;
+            width: 60%;
+            color: #242692;
+            position: relative;
+        }
+        .Statement{
+            margin-left: 5%;
+            margin-right: 5%;
+            position: relative;
+            width: 60%;
+            
+            top: 0%;
+            display: inline-block;
+        }
+        .Statement p{
+            font-size: 2.5vmin;
+            font-family: Raleway;
+        }
+        .IO{
+            position: relative;
+            top:0%;
+            text-decoration: underline;
+            margin-left: 7%;
+            margin-right: 5%;
+            font-family: Raleway;
+            font-size: 1.5vmin;
+        }
+        .IO h2{
+            color:#242592;
+        }
+        .IOtext{
+            position: relative;
+            top:-1%;
+            margin-left: 7%;
+            margin-right: 5%;
+            font-size: 2vmin;
+        }
+        
+        
+    </style>
+    <script>
+    
+    </script>
+</html>
