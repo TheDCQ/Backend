@@ -19,6 +19,7 @@ async function main() {
 			extended: true,
 		})
 	);
+	databaseInt.sendMails(db);
 	app.use(express.json());
 	app.use(cors());
 	app.use("/", express.static(path.join(__dirname, "Public")));
@@ -65,6 +66,10 @@ async function main() {
 			)
 				res.send("Probem already exits");
 			else {
+				db.collection("problems").insertOne({
+					name: req.body.num,
+					difficulty: req.body.difficulty,
+				});
 				fs.writeFile(
 					"Problemset/" + req.body.difficulty + "/" + req.body.num,
 					req.body.enunt,
