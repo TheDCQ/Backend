@@ -58,15 +58,23 @@ async function main() {
 	});
 	app.post("/addProblem", (req, res) => {
 		if (req.body.password == "TPWcwmgMMhf7JbLE") {
-			fs.writeFile(
-				"Problemset/" + req.body.difficulty + "/" + req.body.num,
-				req.body.enunt,
-				function(err) {
-					if (err) throw err;
-					console.log("File is created successfully.");
-				}
-			);
-			res.send("OK");
+			if (
+				fs.existsSync(
+					"Problemset/" + req.body.difficulty + "/" + req.body.num
+				)
+			)
+				res.send("Probem already exits");
+			else {
+				fs.writeFile(
+					"Problemset/" + req.body.difficulty + "/" + req.body.num,
+					req.body.enunt,
+					function(err) {
+						if (err) throw err;
+						console.log("File is created successfully.");
+					}
+				);
+				res.send("Problem Added");
+			}
 		} else {
 			res.send("NOT OK");
 		}
