@@ -1,0 +1,85 @@
+@font-face {
+    font-family: Raleway;
+    src: url("Fonts/Raleway/Raleway-Regular.ttf");
+  }
+  body{
+    margin: 0px;
+    padding: 0px;
+    --blue: #242592;
+    --red: #ca3e47;
+}
+.Header{
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    
+    top: 20%;
+    background-color: var(--blue);
+}
+.Header h1{
+    color: white;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 4.5vmin;
+}
+.TextArea
+{
+    background-color:whitesmoke;
+    border-color: white;
+    color: black;
+    font-family: Raleway;
+    outline: none;
+    font-weight: bold;
+    border-radius: 20px;
+    height: 70vh;
+    width: 40vw;
+    top: 30vh;
+    position: absolute;
+    z-index: 5;
+}
+.TextBox{
+    width: 100vw;
+    
+    background-color: var(--blue);
+    height: 100vh;
+    top: 20vh;
+    position: absolute;
+}
+.Code{
+    position: absolute;
+    top: 22vh;
+    margin-left: 0.5vw;
+    font-family: Raleway;
+}
+.Code h2{
+    color: white;
+
+}
+.SubmitButton
+{
+    border-radius: 30px;
+    position: absolute;
+    outline: none;
+    top: 23vh;
+    font-family: Raleway;
+    font-size: 2.5vmin;
+    font-weight: bold;
+    left: 30vw;
+    width: 8vw;
+    height: 5vh;
+}
+.Selection
+{
+    position: absolute;
+    top:23vh;
+    left: 15vw;
+    width: 8vw;
+    height: 5vh;
+    border-radius: 30px;
+    outline: none;
+    font-family: Raleway;
+    font-weight: bold;
+    font-size: 2.5vmin;
+}
