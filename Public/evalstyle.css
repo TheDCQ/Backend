@@ -37,11 +37,9 @@
     width: 40vw;
     top: 30vh;
     position: absolute;
-    z-index: 5;
 }
 .TextBox{
     width: 100vw;
-    
     background-color: var(--blue);
     height: 100vh;
     top: 20vh;
