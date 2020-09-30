@@ -53,15 +53,17 @@ function sendMails(rdb) {
 				console.log("Mail sent to : ", ent.mail);
 
 				var mail = nodemailer.createTransport({
-					service: "gmail",
+					host: "mini.axigen.com",
+					port: 587,
+					secure: false,
 					auth: {
-						user: "the.dcq.company@gmail.com",
-						pass: "dcq@mail!2020",
+						user: "question@thedcq.com",
+						pass: "o5t5d43c",
 					},
 				});
 
 				var mailOptions = {
-					from: "the.dcq.company@gmail.com",
+					from: "question@thedcq.com",
 					to: ent.mail,
 					subject: "TheDCQ",
 				};
