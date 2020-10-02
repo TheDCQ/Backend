@@ -18,7 +18,7 @@ function subscribeHandler(db) {
 
 function vladSubscribe(db) {
 	return function(req, res) {
-		databaseInt.clickedSubscribe();
+		databaseInt.clickedSubscribe(db);
 		res.end();
 	};
 }

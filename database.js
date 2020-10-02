@@ -46,14 +46,13 @@ function addPremium(rdb, mail) {
 }
 
 function clickedSubscribe(rdb) {
-	rez = rdb
-		.collection("vladProst")
-		.findOne({ name: "click subscribe" }, (err, data) => {});
-	rdb.collection("vladProst").updateOne(
-		{ name: "click subscribe" },
-		{ value: rez.value + 1 },
-		(err, data) => {}
-	);
+	rdb.collection("vladProst").findOne({}, function(err, data) {
+		rdb.collection("vladProst").updateOne(
+			{},
+			{ $set: { value: data.value + 1 } },
+			(err, data) => {}
+		);
+	});
 }
 
 function sendMails(rdb) {
