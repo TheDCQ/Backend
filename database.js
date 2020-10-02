@@ -45,6 +45,17 @@ function addPremium(rdb, mail) {
 	);
 }
 
+function clickedSubscribe(rdb) {
+	rez = rdb
+		.collection("vladProst")
+		.findOne({ name: "click subscribe" }, (err, data) => {});
+	rdb.collection("vladProst").updateOne(
+		{ name: "click subscribe" },
+		{ value: rez.value + 1 },
+		(err, data) => {}
+	);
+}
+
 function sendMails(rdb) {
 	rdb.collection("problems").findOne({}, function(err, result) {
 		rdb.collection("users")
@@ -97,3 +108,4 @@ exports.unsubscribeUser = removeUserFromDB;
 exports.init = dbSetup;
 exports.addPremium = addPremium;
 exports.sendMails = sendMails;
+exports.clickedSubscribe = clickedSubscribe;

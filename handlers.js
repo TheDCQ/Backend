@@ -15,6 +15,14 @@ function subscribeHandler(db) {
 		res.send("OK");
 	};
 }
+
+function vladSubscribe(db) {
+	return function(req, res) {
+		databaseInt.clickedSubscribe();
+		res.end();
+	};
+}
+
 function unsubscribeHandler(db) {
 	return function(req, res) {
 		reqObj = req.body;
@@ -45,3 +53,4 @@ exports.unsubscribe = unsubscribeHandler;
 exports.activatePremium = activatePremiumUserHandler;
 exports.ipn = ipnHandler;
 exports.adminPage = adminHandler;
+exports.vladSubscribe = vladSubscribe;
