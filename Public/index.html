@@ -19,21 +19,20 @@
       <img src="Assets/logomono.png" alt="Daily Coding Question" height="200" width="auto" style="margin:20px 20px">
       <div class='spacer'></div>
       <div class="container white brackets">
-        <a>Subscribe</a>
-        <a>What are we?</a>
-        <a>Demo</a>
+        <a onClick="document.getElementById('Section1').scrollIntoView({behavior: 'smooth', block: 'center'});" >What are we?</a>
+        <a onClick="document.getElementById('Section3').scrollIntoView({behavior: 'smooth', block: 'nearest'});">Demo</a>
         <a>Free Trial</a>
         <a>Testimonials</a>
     </div>
   </div>
   <input class="c-checkbox" type="checkbox" id="checkbox">
-<div class="c-formContainer">
-  <form class="c-form" action="">
+<div class="c-formContainer" >
+  <form class="c-form" action="" >
     <input class="c-form__input" placeholder="E-mail" id="Email" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required >
     <label class="c-form__buttonLabel" for="checkbox" onclick="Subs();">
       <button class="c-form__button" type="button" id="SubscribeButton" onclick="Subs();">Subscribe</button>
     </label>
-    <label class="c-form__toggle" for="checkbox" data-title="Subscribe">
+    <label class="c-form__toggle" for="checkbox" data-title="Subscribe" onclick = "FirstSub()">
       <script>
         
       </script>
@@ -44,7 +43,7 @@
   <h1>CS problems. </h1>
   <h1>Directly in your inbox.</h1>
 </div>
-  <div class = "Section">
+  <div class = "Section" id = "Section1">
     <div class = "SectionText">
       <h1> We provide free coding problems via an email-based subscription. </h1>
       <h2>The problems can be broken down in 3 main categories</h2>
@@ -73,7 +72,7 @@
       <p> Queue, Deque, Linked List, Stack, BST, Heap, Trie. Are you confused yet? You wont be in 30 days time. Get a deeper understanding of these structures and learn how to use them.</p>
     </div>
   </div>
-  <div class="Section3" >
+  <div class="Section3" id = "Section3" >
     <div class = "SectionText2">
       <h1> Practice makes perfect.Why not practice every day then?</h1>
     </div>
