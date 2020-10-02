@@ -14,7 +14,6 @@ async function main() {
 	const [db, client] = await databaseInt.init();
 
 	var app = express();
-	databaseInt.clickedSubscribe(db);
 	app.use(
 		express.urlencoded({
 			extended: true,
