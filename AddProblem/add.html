@@ -12,7 +12,8 @@
 			<input type="text" id="num" />
 			<button onclick="addProblem();">Add Problem</button>
 			<br /><br />
-			<textarea name="text" id="texta" cols="200" rows="47"> </textarea>
+			<textarea name="text" id="texta" cols="100" rows="43"> </textarea>
+			<textarea name="solution" id="sol" cols="100" rows="43"></textarea>
 		</center>
 	</body>
 	<script>
@@ -20,6 +21,7 @@
 			var enunt = document.getElementById("texta").value;
 			var dif = document.getElementById("dif").value;
 			var num = document.getElementById("num").value;
+			var solutie =document.getElementById("sol").value;
 			console.log(enunt);
 			console.log(dif);
 			$.post(
@@ -29,6 +31,7 @@
 					difficulty: dif,
 					password: "TPWcwmgMMhf7JbLE",
 					num: num,
+					sol:solutie,
 				},
 				function(data, status) {
 					alert(data);
