@@ -27,14 +27,14 @@ async function main() {
 	app.get("/unsubscribe", handlers.unsubscribe(db));
 	app.get("/activate", handlers.activatePremium(db));
 	app.get("/", (req, res) => {
-		fs.readFile("index.html", "utf8", function(err, data) {
+		fs.readFile("index.html", "utf8", function (err, data) {
 			if (err) throw err;
 			adp = data.toString();
 			res.send(adp);
 		});
 	});
 	app.get("/admin_panel", (req, res) => {
-		fs.readFile("Admin/admin.html", "utf8", function(err, data) {
+		fs.readFile("Admin/admin.html", "utf8", function (err, data) {
 			if (err) throw err;
 			adp = data.toString();
 			res.send(adp);
@@ -50,7 +50,7 @@ async function main() {
 				username == "tudor") &&
 			password == "TPWcwmgMMhf7JbLE"
 		) {
-			fs.readFile("AddProblem/add.html", "utf8", function(err, data) {
+			fs.readFile("AddProblem/add.html", "utf8", function (err, data) {
 				if (err) throw err;
 				adp = data.toString();
 				res.send(adp);
@@ -73,11 +73,15 @@ async function main() {
 				fs.writeFile(
 					"Problemset/" + req.body.difficulty + "/" + req.body.num,
 					req.body.enunt,
-					function(err) {
+					function (err) {
 						if (err) throw err;
 						console.log("File is created successfully.");
 					}
 				);
+				fs.writeFile("Problemset/" + req.body.difficulty + "/" + req.body.num + "_sol", req.body.sol, function (err) {
+					if (err) throw err;
+					console.log("File is created succesfully");
+				});
 				res.send("Problem Added");
 			}
 		} else {
