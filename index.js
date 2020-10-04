@@ -57,6 +57,17 @@ async function main() {
 			});
 		} else res.send("Wrong username/password");
 	});
+	app.get("/solution",(req,res)=>{
+		dif=req.query.difficulty;
+		name=req.query.name;
+		user=req.query.mail;
+		console.log(dif,name,user);
+		fs.readFile("Problemset/"+dif+"/"+name+"_sol", "utf8", function (err, data) {
+			if (err) throw err;
+			adp = data.toString();
+			res.send(adp);
+		});
+	});
 	app.post("/addProblem", (req, res) => {
 		if (req.body.password == "TPWcwmgMMhf7JbLE") {
 			if (
