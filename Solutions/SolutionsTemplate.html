@@ -14,65 +14,49 @@
         </div>
         <div class = "Explanation" >
             <h1> Explanation </h1>
-           <p> Firstly, let's understand that the sum of the segment [l;r] is zero if pr−pl−1 is zero (in other words, pl−1=pr), where pi is the sum of the first i elements (p0=0).
+           <p> Firstly, let's understand that the sum of the segment \([l;r]\) is zero if \(pr−pl_{−1}\) is zero (in other words, \(pl_{−1}=pr\) ), where \(p_{i}\) is the sum of the first i elements (\(p_{0}=0\)).
             <br>
             Let's iterate over elements from left to right and add all prefix sums in the set. If we get the sum that is already in the set, we get some segment with sum 0, and we need to fix it somehow. Let's insert some huge number before the current element in such a way that all prefix sums starting from the current element to the end will be significantly bigger than all prefix sums to the left. In words of implementation, we just get rid of all prefix sums to the left (clear the set) and continue doing the same process starting from the current element (so we just cut off the prefix of the array).
             <br>
             This way is optimal because we remove all segments with sum 0 ending at the current element using only one insertion (and we need to use at least one insertion to do that).
             <br>
-            Time complexity: O(nlogn).
+            Time complexity: \(O(n * log _{n})\).
         </p>
         </div>
         <div class = "Source">
             <pre><code class="cpp" style="border-radius: 20px; background-color: #242592; margin: 1%;">
-                #include &lt;cstdio&gt;
-                #define sz(v) int(v.size())
-                #define all(v) v.begin(), v.end()
-                #define pb push_back
-                #define ft first
-                #define sc second
-                
+                #include &lt;bits/stdc++.h&gt;
                 using namespace std;
                 
-                int n;
-                vector&lt;int&gt; a, b;
+                #define ll long long
+                #define K first
+                #define V second
+                #define iP pair&lt;int, int&gt;
                 
-                inline void read() {
-                    cin >> n;
-                    a.resize(3);
-                    b.resize(3);
-                    for (int i = 0; i < 3; i++) cin >> a[i];
-                    for (int i = 0; i < 3; i++) cin >> b[i];
-                }
-                    
-                inline void solve() {
-                    int ans1 = INT_MAX;
-                    vector&lt;pair&lt;int, int &gt; &gt; ord;
-                    ord.pb({0, 0});
-                    ord.pb({0, 2});
-                    ord.pb({1, 1});
-                    ord.pb({1, 0});
-                    ord.pb({2, 2});
-                    ord.pb({2, 1});
-                    sort(all(ord));
-                    do {
-                        vector&lt;int&gt; a1 = a, b1 = b;
-                        for (int i = 0; i < sz(ord); i++) {
-                            int cnt = min(a1[ord[i].ft], b1[ord[i].sc]);
-                            a1[ord[i].ft] -= cnt;
-                            b1[ord[i].sc] -= cnt;			
-                        }
-                        int cur = min(a1[0], b1[1]) + min(a1[1], b1[2]) + min(a1[2], b1[0]);
-                        ans1 = min(ans1, cur);
-                    } while(next_permutation(all(ord)));
-                    int ans2 = min(a[0], b[1]) + min(a[1], b[2]) + min(a[2], b[0]);
-                    cout << ans1 << ' ' << ans2 << endl;
-                }
+                const int N = 10;
+                const long long INF64 = 1e18;
+                ll n, sum, x, res;
+                set&lt;ll&gt; st;
                 
-                int main () {
-                    read();
-                    solve();
-                }</code></pre>
+                int main() {
+                    cin &gt;&gt; n;
+                    vector&lt;ll&gt; v;
+                    st.insert(0);
+                
+                    for (int i = 0; i &lt; n; ++i)
+                        cin &gt;&gt; x, v.push_back(x);
+                
+                    for (auto i : v) {
+                        if (st.count(sum + i))
+                            st.clear(), res++, sum = 0, st.insert(0);
+                
+                        sum += i; st.insert(sum);
+                    }
+                
+                    cout &lt;&lt; res;
+                    return 0;
+                }
+            </code></pre>
         </div>
     </body>
     
