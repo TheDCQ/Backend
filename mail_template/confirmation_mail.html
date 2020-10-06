@@ -49,18 +49,30 @@
         font-size: 3.5vmin;
         color: black;
       }
-      .Unsubscribe {
+      .Button {
         position: absolute;
+        text-align: center;
         top: 70vh;
-        width: 60%;
+        width: 10%;
+        height: 5%;
+        border-radius: 20px;
+        background-color: var(--blue);
         margin-left: 5%;
         margin-right: 5%;
+      }
+      .Link {
+        font-family: "Helvetica";
+        text-decoration: none;
+        border-color: var(--blue);
+        display: inline-block;
+
+        color: white;
       }
     </style>
   </head>
   <body>
     <img
-      src="image.svg"
+      src="image.jpg"
       style="position: absolute"
       width="100%"
       height="auto"
@@ -84,8 +96,10 @@
         an easy to understand source code.
       </p>
     </div>
-    <div class="Unsubscribe">
-      <a href="http://letmegooglethat.com/?q=mihai+suge+pula">Unsubscribe</a>
-    </div>
+    <button type="button" class="Button">
+      <a href="http://letmegooglethat.com/?q=mihai+suge+pula" class="Link"
+        >Unsubscribe</a
+      >
+    </button>
   </body>
 </html>
