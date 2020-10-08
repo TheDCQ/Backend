@@ -1,4 +1,6 @@
 const bodyParser = require("body-parser");
+const http = require("http");
+const https = require("https");
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -12,7 +14,10 @@ const PORT = process.env.PORT || 8800;
 
 async function main() {
 	const [db, client] = await databaseInt.init();
+	var privateKey = fs.readFileSync("sslcert/privatekey.pem", "utf8");
+	var certificate = fs.readFileSync("sslcert/cert.pem", "utf8");
 
+	var credentials = { key: privateKey, cert: certificate };
 	var app = express();
 	app.use(
 		express.urlencoded({
@@ -88,10 +93,10 @@ async function main() {
 		"0 0 0 * * *",
 		databaseInt.sendMails.bind(null, db)
 	);
-
-	app.listen(PORT, () => {
-		console.log("Opened on port 8800");
-	});
+	var httpsServer = https.createServer(credentials, app);
+	var httpServer = http.createServer(app);
+	httpServer.listen(80);
+	httpsServer.listen(443);
 }
 
 main();
