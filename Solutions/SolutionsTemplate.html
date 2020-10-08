@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <link rel = "stylesheet" href = "../highlight/styles/dracula.css">
+        <script src = "../highlight/highlight.pack.js"></script>
+        <link rel="stylesheet" type="text/css" href="TemplateStyle.css" media="screen"/>
+        <script> hljs.initHighlightingOnLoad();</script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="position: absolute; top: 0%"><path fill="#242592" fill-opacity="1" d="M0,128L26.7,144C53.3,160,107,192,160,197.3C213.3,203,267,181,320,192C373.3,203,427,245,480,272C533.3,299,587,309,640,304C693.3,299,747,277,800,229.3C853.3,181,907,107,960,101.3C1013.3,96,1067,160,1120,197.3C1173.3,235,1227,245,1280,224C1333.3,203,1387,149,1413,122.7L1440,96L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z"></path></svg>
+        <div class = "Title">
+           <h1>Problem of the day #1</h1> <!-- Aici nu modifici nimic -->
+           <h2> Problem Name </h2> <!-- Aici pui numele problemei -->
+        </div>
+        <div class = "Explanation" >
+            <h1> Explanation </h1>
+           <p> Firstly, let's understand that the sum of the segment \([l;r]\) is zero if \(pr−pl_{−1}\) is zero (in other words, \(pl_{−1}=pr\) ), where \(p_{i}\) is the sum of the first i elements (\(p_{0}=0\)).
+            <br>
+            Let's iterate over elements from left to right and add all prefix sums in the set. If we get the sum that is already in the set, we get some segment with sum 0, and we need to fix it somehow. Let's insert some huge number before the current element in such a way that all prefix sums starting from the current element to the end will be significantly bigger than all prefix sums to the left. In words of implementation, we just get rid of all prefix sums to the left (clear the set) and continue doing the same process starting from the current element (so we just cut off the prefix of the array).
+            <br>
+            This way is optimal because we remove all segments with sum 0 ending at the current element using only one insertion (and we need to use at least one insertion to do that).
+            <br>
+            Time complexity: \(O(n * log _{n})\).
+        </p>
+        </div>
+        <div class = "Source">
+            <pre><code class="cpp" style="border-radius: 20px; background-color: #242592; margin: 1%;">
+                #include &lt;bits/stdc++.h&gt;
+                using namespace std;
+                
+                #define ll long long
+                #define K first
+                #define V second
+                #define iP pair&lt;int, int&gt;
+                
+                const int N = 10;
+                const long long INF64 = 1e18;
+                ll n, sum, x, res;
+                set&lt;ll&gt; st;
+                
+                int main() {
+                    cin &gt;&gt; n;
+                    vector&lt;ll&gt; v;
+                    st.insert(0);
+                
+                    for (int i = 0; i &lt; n; ++i)
+                        cin &gt;&gt; x, v.push_back(x);
+                
+                    for (auto i : v) {
+                        if (st.count(sum + i))
+                            st.clear(), res++, sum = 0, st.insert(0);
+                
+                        sum += i; st.insert(sum);
+                    }
+                
+                    cout &lt;&lt; res;
+                    return 0;
+                }
+            </code></pre>
+        </div>
+    </body>
+    
+</html>

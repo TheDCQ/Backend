@@ -14,9 +14,15 @@ const PORT = process.env.PORT || 8800;
 
 async function main() {
 	const [db, client] = await databaseInt.init();
-	var privateKey = fs.readFileSync("sslcert/privatekey.pem", "utf8");
-	var certificate = fs.readFileSync("sslcert/cert.pem", "utf8");
-
+	var privateKey = fs.readFileSync(
+		path.join(__dirname, "sslcert", "privatekey.pem"),
+		"utf8"
+	);
+	var certificate = fs.readFileSync(
+		path.join(__dirname, "sslcert", "cert.pem"),
+		"utf8"
+	);
+	console.log(privateKey, certificate);
 	var credentials = { key: privateKey, cert: certificate };
 	var app = express();
 	app.use(
@@ -62,6 +68,20 @@ async function main() {
 			});
 		} else res.send("Wrong username/password");
 	});
+	app.get("/solution", (req, res) => {
+		dif = req.query.difficulty;
+		name = req.query.name;
+		user = req.query.mail;
+		console.log(dif, name, user);
+		fs.readFile("Problemset/" + dif + "/" + name + "_sol", "utf8", function(
+			err,
+			data
+		) {
+			if (err) throw err;
+			adp = data.toString();
+			res.send(adp);
+		});
+	});
 	app.post("/addProblem", (req, res) => {
 		if (req.body.password == "TPWcwmgMMhf7JbLE") {
 			if (
@@ -81,6 +101,18 @@ async function main() {
 					function(err) {
 						if (err) throw err;
 						console.log("File is created successfully.");
+					}
+				);
+				fs.writeFile(
+					"Problemset/" +
+						req.body.difficulty +
+						"/" +
+						req.body.num +
+						"_sol",
+					req.body.sol,
+					function(err) {
+						if (err) throw err;
+						console.log("File is created succesfully");
 					}
 				);
 				res.send("Problem Added");

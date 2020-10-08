@@ -199,6 +199,14 @@ div.brackets a:hover:before, div.brackets a:hover:after
     position: absolute;
     width: 100%;
 }
+.Section4{
+    background-color:  transparent;
+    background-color: whitesmoke;
+    height: 100%;
+    top: 260%;
+    position: absolute;
+    width: 100%;
+}
 .SectionText{
     font-family: Raleway;
 }

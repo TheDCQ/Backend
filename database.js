@@ -73,9 +73,9 @@ function sendMails(rdb) {
 				});
 
 				var mailOptions = {
-					from: "question@thedcq.com",
+					from: "The DCQ <question@thedcq.com>",
 					to: ent.mail,
-					subject: "TheDCQ",
+					subject: "Your Daily Question! :)",
 				};
 				fs.readFile(
 					"Problemset/" + result.difficulty + "/" + result.name,

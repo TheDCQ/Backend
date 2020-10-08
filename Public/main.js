@@ -7,3 +7,9 @@ function Subs() {
     xhr.open('GET', "/subscribe?mail=" + document.getElementById("Email").value +"&difficulty=medium", false);
     xhr.send(null);
 };
+function FirstSub()
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "/clickedSubscribe", false);
+    xhr.send(null);
+}
