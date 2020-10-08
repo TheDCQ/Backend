@@ -39,6 +39,11 @@ async function main() {
 	app.use(express.json());
 	app.use(cors());
 	app.use("/", express.static(path.join(__dirname, "Public")));
+	app.use(
+		"/highlight",
+		express.static(path.join(__dirname, "Public", "highlight"))
+	);
+
 	app.get("/clickedSubscribe", handlers.vladSubscribe(db));
 	app.get("/subscribe", handlers.subscribe(db));
 	app.get("/unsubscribe", handlers.unsubscribe(db));
