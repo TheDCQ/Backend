@@ -11,6 +11,7 @@ const handlers = require("./handlers");
 const databaseInt = require("./database");
 
 const PORT = process.env.PORT || 8800;
+const targetBaseUrl = "https://thedcq.com";
 
 async function main() {
 	const [db, client] = await databaseInt.init();
@@ -25,6 +26,11 @@ async function main() {
 	console.log(privateKey, certificate);
 	var credentials = { key: privateKey, cert: certificate };
 	var app = express();
+	var appHttp = express();
+	appHttp.get("*", function handleRedirect(req, res) {
+		const targetUrl = targetBaseUrl + req.originalUrl;
+		res.redirect(targetUrl);
+	});
 	app.use(
 		express.urlencoded({
 			extended: true,
@@ -126,7 +132,7 @@ async function main() {
 		databaseInt.sendMails.bind(null, db)
 	);
 	var httpsServer = https.createServer(credentials, app);
-	var httpServer = http.createServer(app);
+	var httpServer = http.createServer(appHttp);
 	httpServer.listen(80);
 	httpsServer.listen(443);
 }
