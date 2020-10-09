@@ -9,6 +9,7 @@ const fs = require("fs");
 var ipn = require("express-ipn");
 const handlers = require("./handlers");
 const databaseInt = require("./database");
+const { emitKeypressEvents } = require("readline");
 
 const PORT = process.env.PORT || 8800;
 const targetBaseUrl = "https://thedcq.com";
@@ -89,6 +90,7 @@ async function main() {
 					res.send(adp);
 				}
 			);
+		else res.status(404).send("File doesn't exist");
 	});
 	app.post("/addProblem", (req, res) => {
 		if (req.body.password == "TPWcwmgMMhf7JbLE") {
@@ -130,8 +132,8 @@ async function main() {
 		}
 	});
 	var Scheds = schedule.scheduleJob(
-		"0 0 0 * * *",
-		databaseInt.sendMails.bind(null, db)
+		"0 0 0 * * *"
+		//databaseInt.sendMails.bind(null, db)
 	);
 	var httpsServer = https.createServer(credentials, app);
 	var httpServer = http.createServer(appHttp);
