@@ -1,105 +1,116 @@
 <html>
   <head>
     <style>
-      body {
-        --blue: #242592;
-        --red: #ca3e47;
-        margin: 0;
-        font-family: "Helvetica";
+      body{
+        width: 640px;
+        background-color: whitesmoke;
       }
-      .Title {
+      .Title{
         position: relative;
-        width: 60%;
-        top: 6vh;
+        width: 640px;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #242592;
         text-align: center;
-        margin-left: 5%;
-        margin-right: 5%;
-      }
-      .Title h1 {
-        font-size: 4.5vmin;
-        color: white;
-        font-family: "Helvetica";
-      }
-      .Text {
-        top: 30vh;
-        margin-left: 5%;
-        margin-right: 5%;
-        position: absolute;
-        width: 60%;
-        display: inline-block;
-        font-family: "Helvetica";
-      }
-      .Text p {
-        margin-bottom: 0;
-
-        font-size: 3.5vmin;
-        color: black;
-      }
-      .Text2 {
-        margin-left: 5%;
-        margin-right: 5%;
-        position: absolute;
-        width: 60%;
-        top: 45vh;
-
-        display: inline-block;
-        font-family: "Helvetica";
-      }
-      .Text2 p {
-        font-size: 3.5vmin;
-        color: black;
-      }
-      .Button {
-        position: absolute;
-        text-align: center;
-        top: 70vh;
-        width: 10%;
-        height: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-radius: 20px;
-        background-color: var(--blue);
-        margin-left: 5%;
-        margin-right: 5%;
-      }
-      .Link {
-        font-family: "Helvetica";
-        text-decoration: none;
-        border-color: var(--blue);
-        display: inline-block;
+        vertical-align: middle;
 
+      }
+      .Title h1{
+        
+        color:  white;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+
+
+        margin-right: auto;
+        font-size: 20px;
+        font-family:monospace;
+      }
+      .Text{
+        top: 100px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 640px;
+        background-color: #242592;
+        border-radius: 20px;
+      }
+      .Text p{
+        color:white;
+        margin-left: auto;
+        margin-right: auto;
+        margin: 20px;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 0px;
+        font-size: 130%;
+        font-family:monospace;
+      }
+      .Text a{
         color: white;
+        font-family:monospace;
+    
+        display: inline-block;
+    
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+        font-size: 130%;
+        font-weight: bold;
+      }
+      .Text2{
+        top: 100px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 640px;
+        background-color: rgba(128, 128, 128, 0.267);
+        border-radius: 20px;
+      }
+      .Text2 p{
+        color:black;
+        margin-left: auto;
+        margin-right: auto;
+        margin: 20px;
+        padding: 5px;
+        text-align: center;
+        margin-bottom: 0px;
+        font-size: 130%;
+        font-family:monospace;
+      }
+      .Text2 a{
+        color: black;
+        font-family:monospace;
+    
+        display: inline-block;
+    
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+        font-size: 100%;
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
-    <img
-      src="image.jpg"
-      style="position: absolute"
-      width="100%"
-      height="auto"
-    />
-    <div class="Title">
-      <h1>Thank you for subscribing!</h1>
+    <div class = "Title">
+      <h1> You have been subscribed to the DCQ </h1>
     </div>
-    <div class="Text">
-      <p>
-        We are glad you chose our service, and you wont not be dissapointed for
-        sure!<br />
-        Every day starting tomorrow, you will receive a mail with your daily
-        coding question.
-      </p>
+    <div class = "Text">
+      <p>Hello there,<br>Thanks for signing up to Daily Coding Question! Before we get going, we just need to confirm this is you.</p>
+      <center><a href = "https://www.google.com"> Click here to confirm your subscription </a></center>
     </div>
-    <div class="Text2">
-      <p>
-        <b>Is the problem too difficult?</b> or you just can't think of a way to
-        solve it? Then you can acces the link after the end of the problem! This
-        link take you to a page where you can find a well explained solution and
-        an easy to understand source code.
-      </p>
+    <div class = "Text2">
+      <p>No more? </p> 
+        <center><a href = "https://google.ro"> Unsubscribe :(</a></center>
     </div>
-    <button type="button" class="Button">
-      <a href="http://letmegooglethat.com/?q=mihai+suge+pula" class="Link"
-        >Unsubscribe</a
-      >
-    </button>
   </body>
 </html>
