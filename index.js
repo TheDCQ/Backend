@@ -79,14 +79,16 @@ async function main() {
 		name = req.query.name;
 		user = req.query.mail;
 		console.log(dif, name, user);
-		fs.readFile("Problemset/" + dif + "/" + name + "_sol", "utf8", function(
-			err,
-			data
-		) {
-			if (err) throw err;
-			adp = data.toString();
-			res.send(adp);
-		});
+		if (fs.existsSync("Problemset/" + dif + "/" + name + "_sol"))
+			fs.readFile(
+				"Problemset/" + dif + "/" + name + "_sol",
+				"utf8",
+				function(err, data) {
+					if (err) throw err;
+					adp = data.toString();
+					res.send(adp);
+				}
+			);
 	});
 	app.post("/addProblem", (req, res) => {
 		if (req.body.password == "TPWcwmgMMhf7JbLE") {
