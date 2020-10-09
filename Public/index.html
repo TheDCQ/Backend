@@ -45,12 +45,14 @@
 				>
 				<a
 					onClick="document.getElementById('Section3').scrollIntoView({behavior: 'smooth', block: 'nearest'});"
-					>Demo</a
+					>Problems</a
 				>
-				<a>Free Trial</a>
-				<a>Testimonials</a>
+        <a onClick="document.getElementById('Section4').scrollIntoView({behavior: 'smooth', block: 'nearest'});">Solutions</a>
+        <a onClick="document.getElementById('Section5').scrollIntoView({behavior: 'smooth', block: 'nearest'});"> Code Judge</a>
+        <a onClick="document.getElementById('Section5').scrollIntoView({behavior: 'smooth', block: 'nearest'});"> Video Tutorials</a>
 			</div>
-		</div>
+    </div>
+    
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 1440 320"
@@ -84,7 +86,7 @@
 				d="M0,64L120,74.7C240,85,480,107,720,106.7C960,107,1200,85,1320,74.7L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
 			></path>
 		</svg>
-
+    
 		<input class="c-checkbox" type="checkbox" id="checkbox" />
 		<div class="c-formContainer">
 			<form class="c-form" action="">
@@ -132,7 +134,8 @@
 				</h1>
 				<h2>The problems can be broken down in 3 main categories</h2>
 			</div>
-		</div>
+    </div>
+    
 		<div class="Section2">
 			<div
 				class="Card1"
@@ -140,7 +143,9 @@
 				data-aos-offset="200"
 				data-aos-delay="100"
 				data-aos-duration="1000"
-			>
+      >
+      <span></span>
+      <span></span>
 				<h1>Competitive Programming</h1>
 				<p>
 					Up your rating on Codeforces, CodeChef, Timus and many other
@@ -154,11 +159,14 @@
 				data-aos-offset="200"
 				data-aos-delay="600"
 				data-aos-duration="1000"
-			>
+      >
+      <span></span>
+        <span></span>
 				<h1>
 					Interview<br />
 					Questions
-				</h1>
+        </h1>
+        
 				<p>
 					Prepare for incoming interviews at FANG or Start-ups. Real
 					life problems given in recent years during practical
@@ -172,7 +180,9 @@
 				data-aos-offset="200"
 				data-aos-delay="1000"
 				data-aos-duration="1000"
-			>
+      >
+      <span></span>
+      <span></span>
 				<h1>Data Structures Knowledge</h1>
 				<p>
 					Queue, Deque, Linked List, Stack, BST, Heap, Trie. Are you
@@ -181,26 +191,15 @@
 				</p>
 			</div>
 		</div>
-		<div class="wave-container">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 1440 520"
-				style="position: absolute;top:100vh; height: 100%; width: 100%;"
-			>
-				<path
-					fill="#242592"
-					fill-opacity="1"
-					d="M0,128L48,144C96,160,192,192,288,213.3C384,235,480,245,576,234.7C672,224,768,192,864,202.7C960,213,1056,267,1152,250.7C1248,235,1344,149,1392,106.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-				></path>
-			</svg>
-		</div>
+		
 
 		<div class="Section3" id="Section3">
 			<div class="SectionText2">
-				<h1>Practice makes perfect.Why not practice every day then?</h1>
+				<h1>Practice makes perfect. Why not practice every day then?</h1>
 			</div>
 			<img
-				src="Assets/mailtemp.PNG"
+        src="Assets/mailtemp2.PNG"
+        class = "Img1"
 				alt="Template"
 				height="auto"
 				width="60%"
@@ -208,18 +207,31 @@
 			/>
 		</div>
 
-		<div class="Section4" id="Section4"></div>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 1440 320"
-			style="position: absolute;top:220vh; height: 100%; width: 100%;"
-		>
-			<path
-				fill="#242592"
-				fill-opacity="1"
-				d="M0,128L48,138.7C96,149,192,171,288,170.7C384,171,480,149,576,133.3C672,117,768,107,864,138.7C960,171,1056,245,1152,261.3C1248,277,1344,235,1392,213.3L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-			></path>
-		</svg>
+		<div class="Section4" id="Section4">
+      <img
+      src="Assets/sol.PNG"
+      class = "Img"
+      alt="Sol"
+      height="auto"
+      width="60%"
+      style="margin-left: 20%; margin-right: 20%; position: absolute; display: block; border-radius: 5%; top:5%"
+    />
+    </div>
+    <div class = "Section5" id = "Section5">
+      <div class = "Split1">
+        <h1> Code Judge <h1></h1>
+        <p> ~ A place where you can test your code and receive feedback regarding execution speed, memory used, warnings or even execution errors.<br><br> ~ Get acces to tests your program fails and perfect your solution without having to debug for hours.<br><br> ~ Support for most programming languages <br><br> ~ Code highliting environment <br> </p>
+      </div>
+      <div class = "Split2">
+        <h1> Video Guides </h1> 
+        <p>~ Special Video Guides for difficult problems and topics that need further understanding <br> <br> ~Put together by top competitive programmers <br><br> ~Weekly Data Structure / Algorithm Video <br><br> ~Short and easy to undertand</p>
+      </div>
+      
+    </div>
+    <div class = "buybutton">
+      Coming soon
+      
+    </div>
 		<script
 			data-ad-client="ca-pub-7226771522957807"
 			async

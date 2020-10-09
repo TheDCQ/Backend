@@ -194,18 +194,39 @@ div.brackets a:hover:before, div.brackets a:hover:after
 .Section3{
     background-color:  transparent;
     background-color: #242592;
-    height: 110%;
+    height: 130%;
     top: 150%;
     position: absolute;
     width: 100%;
 }
 .Section4{
     background-color:  transparent;
-    background-color: whitesmoke;
+    background-color: #242592;
     height: 100%;
-    top: 260%;
+    top: 275%;
     position: absolute;
     width: 100%;
+}
+.Section5{
+    background-color:  transparent;
+    background-color: whitesmoke;
+    height: 100%;
+    top: 375%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+.Section5 h1{
+    color: black;
+    font-family: Raleway;
+    font-size: 5vmin;
+    margin: 0;
+}
+.Section5 h2{
+    margin: 0;
+    color: black;
+    font-family: Raleway;
+    font-size: 4vmin;
 }
 .SectionText{
     font-family: Raleway;
@@ -521,6 +542,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
     background-color:  #242592;
 }
 .Card1 {
+    overflow: hidden;
     background: rgb(36,37,146);
 background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%);
     font-family: Raleway;
@@ -531,6 +553,59 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
     width: 20vw;
     border-radius: 50px;
 }
+.Card1 span{
+    transition: 0.0s;
+    opacity: 0;
+}
+.Card1:hover span{
+    opacity: 1;
+}
+.Card1 span:nth-child(1)
+{
+    position: absolute;
+    top:0;
+    left:20%;
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(to right, transparent, #F64C72);
+    animation: animation1 2s linear infinite;
+
+}
+.Card1 span:nth-child(2)
+{
+    position: absolute;
+    bottom: 0px;
+    left:0;
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(to left, transparent, #F64C72);
+    border-radius: 50px;
+    animation: animation2 2s linear infinite;
+    
+}
+@keyframes animation1
+{
+    0%
+    {
+        transform: translateX(-100%)
+    }
+    100%
+    {
+        transform: translateX(100%);
+    }
+}
+@keyframes animation2
+{
+    0%
+    {
+        transform: translateX(100%)
+    }
+    100%
+    {
+        transform: translateX(-100%);
+    }
+}
+
 .Card1 h1{
     text-align: center;
     font-size: 4vmin;
@@ -548,6 +623,7 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
     
 }
 .Card2 {
+    overflow: hidden;
     background: rgb(36,37,146);
 background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%);
     position: absolute; 
@@ -556,7 +632,7 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
     left: 40%;
     height: 40vh;
     width: 20vw;
-    border-radius: 50px;
+     border-radius: 50px;
 }
 .Card2 h1{
     text-align: center;
@@ -566,12 +642,43 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
 }
 .Card2 p{
     text-align: center;
+    overflow: hidden;
     font-size: 2vmin;
     margin-top:auto;
     margin-bottom: auto;
     margin-left: 5%;
     margin-right: 5%;
     color: white;
+    
+}
+.Card2 span{
+    transition: 0.0s;
+    opacity: 0;
+}
+.Card2:hover span{
+    opacity: 1;
+}
+.Card2 span:nth-child(1)
+{
+    position: absolute;
+    top:0;
+    left:20%;
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(to right, transparent, #F64C72);
+    animation: animation1 2s linear infinite;
+
+}
+.Card2 span:nth-child(2)
+{
+    position: absolute;
+    bottom: 0px;
+    left:0;
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(to left, transparent, #F64C72);
+    border-radius: 50px;
+    animation: animation2 2s linear infinite;
     
 }
 .Card3 {
@@ -583,7 +690,39 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
     font-family: Raleway;
     height: 40vh;
     width: 20%;
+    overflow: hidden;
     border-radius: 50px;
+}
+.Card3 span{
+    transition: 0.0s;
+    opacity: 0;
+}
+.Card3:hover span{
+    opacity: 1;
+}
+
+.Card3 span:nth-child(1)
+{
+    position: absolute;
+    top:0;
+    left:20%;
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(to right, transparent, #F64C72);
+    animation: animation1 2s linear infinite;
+
+}
+.Card3 span:nth-child(2)
+{
+    position: absolute;
+    bottom: 0px;
+    left:0;
+    width: 80%;
+    height: 5px;
+    background: linear-gradient(to left, transparent, #F64C72);
+    border-radius: 50px;
+    animation: animation2 2s linear infinite;
+    
 }
 .Card3 h1{
     text-align: center;
@@ -699,4 +838,96 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
     width: 80%;
     height: 150%;
     background-color: white;
+}
+.Img{
+    -webkit-box-shadow: 0px 0px 29px -6px rgba(36,37,146,1);
+-moz-box-shadow: 0px 0px 29px -6px rgb(13, 15, 88);
+box-shadow: 0px 0px 29px -6px rgb(16, 17, 95);
+}
+.Img1{
+    -webkit-box-shadow: 0px 0px 29px -6px rgb(0, 0, 0);
+    -moz-box-shadow: 0px 0px 29px -6px rgb(12, 13, 70);
+    box-shadow: 0px 0px 29px -6px rgb(5, 5, 54);
+}
+.Split1{
+    position: absolute;
+    height: 70%;
+    width: 30%;
+    padding: 0;
+    margin-left: 20%;
+    top:5%;
+    margin-right: 0;
+    background-color: #242592;
+    border-top-left-radius: 50px;
+}
+.Split1 h1{
+    color: white;
+}
+.Split1 p{
+    text-align: left;
+    padding: 20px;
+    font-family: Raleway;
+    color: white;
+    font-size: 2vmin;
+}
+.buybutton{
+    width: 30%;
+    height: 20%;
+    left: 35%;
+    top:425%;
+    position: absolute;
+    font-family: Raleway;
+    font-size: 4vmin;
+    color: #242592;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    font-weight: bold;
+    text-align: center;
+    background-color: #F64C72;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.buybutton2{
+    width: 15%;
+    height: 20%;
+    left: 50%;
+    top:425%;
+    position: absolute;
+    font-family: Raleway;
+    font-size: 4vmin;
+    color: #242592;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    font-weight: bold;
+    text-align: center;
+    background-color: #242692;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -webkit-box-shadow: 0px 0px 29px -6px rgb(0, 0, 0);
+    -moz-box-shadow: 0px 0px 29px -6px rgb(12, 13, 70);
+    box-shadow: 0px 0px 29px -6px rgb(5, 5, 54);
+}
+.Split2{
+    position: absolute;
+    height: 70%;
+    padding: 0;
+    top:5%;
+    width: 30%;
+    margin-left: 49.9%;
+    border-bottom-right-radius: 50px;
+
+    background-color: #d13759;
+    
+}
+.Split2 h1{
+    color: white;
+}
+.Split2 p{
+    text-align: left;
+    padding: 20px;
+    font-family: Raleway;
+    color: white;
+    font-size: 2vmin;
 }
