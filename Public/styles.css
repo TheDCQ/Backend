@@ -245,7 +245,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
 .Section5 h1{
     color: black;
     font-family: Raleway;
-    font-size: 5vmin;
+    font-size: 2em;
     margin: 0;
 }
 .Section5 h2{
@@ -641,7 +641,7 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
 }
 .Card1p{
     text-align: center;
-    font-size: 2vmin;
+    font-size: 1.7em;
     margin-top:auto;
     margin-bottom: auto;
     margin-left: 5%;
