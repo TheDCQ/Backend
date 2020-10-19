@@ -177,7 +177,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
 
 .Section{
     color:   #242592;
-    background-color:  whitesmoke;
+    background-color:  white;
     height: 50%;
     top: 60%;
     position: absolute;
@@ -185,33 +185,59 @@ div.brackets a:hover:before, div.brackets a:hover:after
 }
 .Section2{
     color:   transparent;
-    background-color: whitesmoke;
-    height: 70%;
+
+    height: 80%;
     top: 80%;
     position: absolute;
     width: 100%;
 }
+@media (max-width: 800px) {
+    .svgClass{
+        display: none;
+    }
+    .Section{
+        top: 80%;
+    }
+    .Section3 {
+        top: 170%;
+        height: 80% !important;
+    }
+    .Section4{
+        top: 215% !important;
+        height: 50% !important;
+    }
+    .Section5{
+        top: 260% !important;
+        display: none;
+    }
+    .buybutton{
+        display: none !important;
+    }
+    .buybutton2{
+        display: none;
+    }
+}
 .Section3{
     background-color:  transparent;
     background-color: #242592;
-    height: 130%;
-    top: 150%;
+    height: 180%;
+    top: 160%;
     position: absolute;
     width: 100%;
 }
 .Section4{
     background-color:  transparent;
     background-color: #242592;
-    height: 100%;
-    top: 275%;
+    height: 170%;
+    top: 335%;
     position: absolute;
     width: 100%;
 }
 .Section5{
     background-color:  transparent;
-    background-color: whitesmoke;
+    background-color:white;
     height: 100%;
-    top: 375%;
+    top: 475%;
     position: absolute;
     width: 100%;
     text-align: center;
@@ -262,18 +288,18 @@ div.brackets a:hover:before, div.brackets a:hover:after
     text-align: center;
     font-size: 4.5vmin;
     width: 100%;
-    color: whitesmoke;
+    color: white;
     
 }
 .SectionText2 h2{
     text-align: center;
     font-size: 4vmin;
     width: 100%;
-    color: whitesmoke;
+    color: white;
     
 }
 .SectionText2 p1{
-    color: whitesmoke;
+    color: white;
     text-align: start;
     position: absolute;
     padding-left: 2%;
@@ -283,8 +309,8 @@ div.brackets a:hover:before, div.brackets a:hover:after
     
 }
 .HeaderTextBox{
-    position: absolute;
-    top:10%;
+    position: relative;
+    top:-20%;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -304,7 +330,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
     font-family: Raleway;
 }
 .c-checkbox:checked + .c-formContainer .c-form {
-    width: 37.5em;
+    width: 60%;
 }
 .c-checkbox:checked + .c-formContainer .c-form__toggle {
     visibility: hidden;
@@ -325,7 +351,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
     cursor: default;
 }
 .c-formContainer, .c-form, .c-form__toggle {
-    width: 20em;
+    width: 60%;
     height: 6.25em;
 }
 .c-formContainer {
@@ -346,6 +372,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
 }
 .c-form {
     left: 50%;
+    width: 60%;
     transform: translateX(-50%);
     padding: 0.625em;
     box-sizing: border-box;
@@ -383,7 +410,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
 .c-form__input {
     color:  #242592;
     height: 100%;
-    width: 100%;
+    width: 60%;
     padding: 0 0.714em;
 }
 .c-form__input::placeholder {
@@ -426,7 +453,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
     display: none;
 }
 .c-checkbox:checked + .c-formContainer .c-form {
-    width: 37.5em;
+    width: 250%;
 }
 .c-checkbox:checked + .c-formContainer .c-form__toggle {
     visibility: hidden;
@@ -448,7 +475,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
 }
 .c-formContainer, .c-form, .c-form__toggle {
     width: 20em;
-    height: 6.25em;
+    height: 8.25em;
 }
 .c-formContainer {
     position: relative;
@@ -463,8 +490,8 @@ div.brackets a:hover:before, div.brackets a:hover:after
     transition: 0.2s;
 }
 .c-form {
-    height: 9vmin;
-    width: 29vmin;
+    height: 11vmin;
+    width: 20vmin;
     left: 50%;
     transform: translateX(-50%);
     padding: 0.625em;
@@ -474,7 +501,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
     justify-content: center;
 }
 .c-form__toggle {
-    height: 9vmin;
+    height: 11vmin;
     width: 29vmin;
     color:  #242592;
     top: 0;
@@ -606,13 +633,13 @@ background: radial-gradient(circle, rgba(36,37,146,1) 0%, rgba(41,41,152,1) 100%
     }
 }
 
-.Card1 h1{
+.Card1h1{
     text-align: center;
     font-size: 4vmin;
     color: #F64C72;
     
 }
-.Card1 p{
+.Card1p{
     text-align: center;
     font-size: 2vmin;
     margin-top:auto;
@@ -874,7 +901,7 @@ box-shadow: 0px 0px 29px -6px rgb(16, 17, 95);
     width: 30%;
     height: 20%;
     left: 35%;
-    top:425%;
+    top:525%;
     position: absolute;
     font-family: Raleway;
     font-size: 4vmin;
