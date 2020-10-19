@@ -191,7 +191,7 @@ div.brackets a:hover:before, div.brackets a:hover:after
     position: absolute;
     width: 100%;
 }
-@media (max-width: 800px) {
+@media (max-width: 1440px) {
     .svgClass{
         display: none;
     }
