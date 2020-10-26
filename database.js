@@ -17,8 +17,8 @@ function addUserToDB(rdb, mail, expiration, problem, difficulty, premium) {
 	rdb.collection("users").insertOne(
 		{
 			mail: mail,
-			expiration: expiration,
 			problem: problem,
+			activated: false,
 			difficulty: difficulty,
 			premium: premium,
 		},
@@ -58,7 +58,7 @@ function clickedSubscribe(rdb) {
 function sendMails(rdb) {
 	rdb.collection("problems").findOne({}, function(err, result) {
 		rdb.collection("users")
-			.find()
+			.find({ activated: true })
 			.forEach(function(ent) {
 				console.log("Mail sent to : ", ent.mail);
 
