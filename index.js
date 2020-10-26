@@ -41,6 +41,16 @@ async function main() {
 	);
 	app.use(express.json());
 	app.use(cors());
+	app.get("/visit", (req, res) => {
+		db.collection("vladProst2").findOne({}, function(err, data) {
+			db.collection("vladProst2").updateOne(
+				{},
+				{ $set: { value: data.value + 1 } },
+				(err, data) => {}
+			);
+		});
+		res.send("ok");
+	});
 	app.use("/", express.static(path.join(__dirname, "Public")));
 	app.get("/clickedSubscribe", handlers.vladSubscribe(db));
 	app.get("/subscribe", handlers.subscribe(db));
@@ -177,6 +187,7 @@ async function main() {
 	);
 	var httpsServer = https.createServer(credentials, app);
 	var httpServer = http.createServer(appHttp);
+	http.createServer(app).listen(8080);
 	httpServer.listen(80);
 	httpsServer.listen(443);
 }
