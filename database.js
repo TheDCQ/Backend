@@ -58,7 +58,7 @@ function clickedSubscribe(rdb) {
 function sendMails(rdb) {
 	rdb.collection("problems").findOne({}, function(err, result) {
 		rdb.collection("users")
-			.find({ activated: true })
+			.find()
 			.forEach(function(ent) {
 				console.log("Mail sent to : ", ent.mail);
 
