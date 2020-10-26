@@ -13,3 +13,9 @@ function FirstSub()
     xhr.open('GET', "/clickedSubscribe", false);
     xhr.send(null);
 }
+function Visits()
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "/visit", false);
+    xhr.send(null);
+}
