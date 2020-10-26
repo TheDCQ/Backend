@@ -182,8 +182,8 @@ async function main() {
 		}
 	);
 	var Scheds = schedule.scheduleJob(
-		"0 0 0 * * *"
-		//databaseInt.sendMails.bind(null, db)
+		"0 0 0 * * *",
+		databaseInt.sendMails.bind(null, db)
 	);
 	var httpsServer = https.createServer(credentials, app);
 	var httpServer = http.createServer(appHttp);
