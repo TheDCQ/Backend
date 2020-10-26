@@ -27,7 +27,7 @@ function unsubscribeHandler(db) {
 	return function(req, res) {
 		reqObj = req.body;
 		databaseInt.unsubscribeUser(db, req.query.mail);
-		res.send("OK");
+		res.send("You have been unsubscribed");
 	};
 }
 function activatePremiumUserHandler(db) {

@@ -55,6 +55,25 @@ async function main() {
 	app.get("/clickedSubscribe", handlers.vladSubscribe(db));
 	app.get("/subscribe", handlers.subscribe(db));
 	app.get("/unsubscribe", handlers.unsubscribe(db));
+	app.get("/unsubcribeUser", (req, res) => {
+		req.send(`<html>
+		<head>
+	
+		</head>
+		<body>
+			<label for="email">Your mail</label><br>
+	  <input type="email" id="email" name="email" ><br>
+	  <button onclick="UnsubscribeButtonClick()"> Unsubscribe </button>
+		<script>
+			function UnsubscribeButtonClick()
+			{
+				link = "https://thedcq.com/unsubscribe?mail=" + document.getElementById('email').value;
+				 window.location.href = link;
+			}
+		</script>
+		</body>
+	</html>`);
+	});
 	app.get("/activate", handlers.activatePremium(db));
 	app.get("/", (req, res) => {
 		fs.readFile("index.html", "utf8", function(err, data) {
