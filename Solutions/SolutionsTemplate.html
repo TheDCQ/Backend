@@ -104,76 +104,68 @@
 			></path>
 		</svg>
 		<div class="Title">
-			<h1>Problem of the day #1</h1>
+			<h1>Problem of the day</h1>
 			<!-- Aici nu modifici nimic sa imi sugi pula vlad-->
-			<h2>Problem Name</h2>
+			<h2>One Array</h2>
 			<!-- Aici pui numele problemei si tu , tudor-->
 		</div>
 		<div class="Explanation">
 			<h1>Explanation</h1>
 			<p>
-				Firstly, let's understand that the sum of the segment \([l;r]\)
-				is zero if \(pr−pl_{−1}\) is zero (in other words,
-				\(pl_{−1}=pr\) ), where \(p_{i}\) is the sum of the first i
-				elements (\(p_{0}=0\)).
-				<br />
-				Let's iterate over elements from left to right and add all
-				prefix sums in the set. If we get the sum that is already in the
-				set, we get some segment with sum 0, and we need to fix it
-				somehow. Let's insert some huge number before the current
-				element in such a way that all prefix sums starting from the
-				current element to the end will be significantly bigger than all
-				prefix sums to the left. In words of implementation, we just get
-				rid of all prefix sums to the left (clear the set) and continue
-				doing the same process starting from the current element (so we
-				just cut off the prefix of the array).
-				<br />
-				This way is optimal because we remove all segments with sum 0
-				ending at the current element using only one insertion (and we
-				need to use at least one insertion to do that).
-				<br />
-				Time complexity: \(O(n * log _{n})\).
+				Let's understand how players should act.
+				<br>
+				<br>
+				Vasya needs to delete the first digit that is not equal to 8, because the first digit of telephone number should be 8, and the first digit not equal to 8 is preventing it.
+				<br>
+				<br>
+				Petya needs to delete the first digit equal to 8, for the same reasons.
+				<br>
+				So, all that we need to do is delete first \(n−112\) digits not equal to 8 (if they exist), and first n−112 digits equal to 8 (again if they exist). It's enough to stop when there is either no 8's left or no non-8's because the latter moves won't change the result of the game anyway. Finally, if first digit of resulting string is 8, then Vasya wins, otherwise Petya.
+				<br>
+				<br>
+				Overall complexity: \(O(n)\).
 			</p>
 		</div>
 		<div class="Source">
 			<pre><code class="cpp" style="border-radius: 20px; background-color: #242592; margin: 1%;">
-                #include &lt;bits/stdc++.h&gt;
-                using namespace std;
-                
-                #define ll long long
-                #define K first
-                #define V second
-                #define iP pair&lt;int, int&gt;
-                
-                const int N = 10;
-                const long long INF64 = 1e18;
-                ll n, sum, x, res;
-                set&lt;ll&gt; st;
-                
-                int main() {
-                    cin &gt;&gt; n;
-                    vector&lt;ll&gt; v;
-                    st.insert(0);
-                
-                    for (int i = 0; i &lt; n; ++i)
-                        cin &gt;&gt; x, v.push_back(x);
-                
-                    for (auto i : v) {
-                        if (st.count(sum + i))
-                            st.clear(), res++, sum = 0, st.insert(0);
-                
-                        sum += i; st.insert(sum);
-                    }
-                
-                    cout &lt;&lt; res;
-                    return 0;
-                }
+				#include&lt;cstdio&gt;
+				int eights[100001];
+				int main()
+				{
+					int n , digit;
+					scanf("%d" , &n);
+					int k = 0;
+					for(int i = 1; i &lt;= n ; i ++)
+					{
+						scanf("%1d" , &digit);
+						if(digit == 8){
+							eights[++k] = i;
+						}
+					}
+					int moves = n - 11;
+					moves /= 2;
+					if(k &lt;= moves){
+						printf("NO");
+						return 0;
+					}
+					if(eights[moves + 1] &gt; 2 * moves + 1)
+					{
+						printf("NO");
+						return 0;
+					}
+					printf("YES");
+					return  0;
+				}
             </code></pre>
 		</div>
+	
+		<iframe style="position:relative; top: 40%; margin-left: 15%; " src="https://docs.google.com/forms/d/e/1FAIpQLSfad1Z6IHvYnnGhpv9D19Yopro9YBb6kgtW7mQHYauZ36ZaAA/viewform?embedded=true" width="640" height="1037" frameborder="0" marginheight="0" marginwidth="0">Se încarcă…</iframe>
 		<script>
-			function coxAndStealMoney() {
-				mineBitcoin();
-			}
+			
+					var xhr = new XMLHttpRequest();
+					xhr.open('GET', "/solution", false);
+					xhr.send(null);
+				
 		</script>
 	</body>
 </html>
