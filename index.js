@@ -7,11 +7,14 @@ const path = require("path");
 const schedule = require("node-schedule");
 const fs = require("fs");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
+const jds = require("jds");
 
 var ipn = require("express-ipn");
 const handlers = require("./handlers");
 const databaseInt = require("./database");
 const { emitKeypressEvents } = require("readline");
+const { randomBytes } = require("crypto");
+const { ObjectID } = require("mongodb");
 
 const PORT = process.env.PORT || 8800;
 const targetBaseUrl = "https://thedcq.com";
@@ -75,6 +78,23 @@ async function main() {
 	</html>`);
 	});
 	app.get("/activate", handlers.activatePremium(db));
+	app.get("/confirm", (req, res) => {
+		db.collection("users").updateOne(
+			{ _id: ObjectID(req.query.id) },
+			{ $set: { activated: true } },
+			(err, data) => {
+				res.send("You have been activated");
+			}
+		);
+	});
+	app.get("/unsubscribeID", (req, res) => {
+		db.collection("users").deleteOne(
+			{ _id: ObjectID(req.query.id) },
+			(err, data) => {
+				res.send("You have been unsubscribed");
+			}
+		);
+	});
 	app.get("/", (req, res) => {
 		databaseInt.traficCount(db);
 		fs.readFile("index.html", "utf8", function(err, data) {

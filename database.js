@@ -1,6 +1,8 @@
 const nodemailer = require("nodemailer");
 const fs = require("fs");
 const { MongoClient } = require("mongodb");
+const ejs = require("ejs");
+const path = require("path");
 const url =
 	"mongodb+srv://admin:TPWcwmgMMhf7JbLE@thedcq.tjnx3.gcp.mongodb.net/DCQ?retryWrites=true&w=majority";
 
@@ -14,7 +16,7 @@ async function dbSetup() {
 }
 
 function addUserToDB(rdb, mail, expiration, problem, difficulty, premium) {
-	rdb.collection("users").insertOne(
+	idins = rdb.collection("users").insertOne(
 		{
 			mail: mail,
 			problem: problem,
@@ -23,10 +25,48 @@ function addUserToDB(rdb, mail, expiration, problem, difficulty, premium) {
 			premium: premium,
 		},
 		(err, res) => {
-			if (err) console.log("Eroare : ", err);
+			if (err) console.log(err);
+			else sendConfirmationMail(rdb, res.insertedId, mail);
 		}
 	);
 }
+
+function sendConfirmationMail(rdb, id, email) {
+	ejs.renderFile(
+		path.join(__dirname, "mail_template", "confirmation_mail.html"),
+		{
+			id: id,
+		},
+		{},
+		function(err, str) {
+			var mail = nodemailer.createTransport({
+				host: "mini.axigen.com",
+				port: 587,
+				secure: false,
+				auth: {
+					user: "question@thedcq.com",
+					pass: "o5t5d43c",
+				},
+			});
+
+			var mailOptions = {
+				from: "The DCQ <question@thedcq.com>",
+				to: email,
+				subject: "Confirmation Mail",
+			};
+			if (err) throw err;
+			mailOptions.html = str;
+			mail.sendMail(mailOptions, function(error, info) {
+				if (error) {
+					console.log(error);
+				} else {
+					console.log("Email sent: " + info.response);
+				}
+			});
+		}
+	);
+}
+
 function removeUserFromDB(rdb, mail) {
 	var query = { mail: mail };
 	rdb.collection("users").deleteOne(query, (err, res) => {
