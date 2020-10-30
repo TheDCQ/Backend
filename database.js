@@ -54,6 +54,15 @@ function clickedSubscribe(rdb) {
 		);
 	});
 }
+function siteTraficAdd(rdb) {
+	rdb.collection("totalTrafic").findOne({}, function(err, data) {
+		rdb.collection("totalTrafic").updateOne(
+			{},
+			{ $set: { value: data.value + 1 } },
+			(err, data) => {}
+		);
+	});
+}
 
 function sendMails(rdb) {
 	rdb.collection("problems").findOne({}, function(err, result) {
@@ -62,25 +71,25 @@ function sendMails(rdb) {
 			.forEach(function(ent) {
 				console.log("Mail sent to : ", ent.mail);
 
-				var mail = nodemailer.createTransport({
-					host: "mini.axigen.com",
-					port: 587,
-					secure: false,
-					auth: {
-						user: "question@thedcq.com",
-						pass: "o5t5d43c",
-					},
-				});
-
-				var mailOptions = {
-					from: "The DCQ <question@thedcq.com>",
-					to: ent.mail,
-					subject: "Your Daily Question! :)",
-				};
 				fs.readFile(
 					"Problemset/" + result.difficulty + "/" + result.name,
 					"utf8",
 					function(err, data) {
+						var mail = nodemailer.createTransport({
+							host: "mini.axigen.com",
+							port: 587,
+							secure: false,
+							auth: {
+								user: "question@thedcq.com",
+								pass: "o5t5d43c",
+							},
+						});
+
+						var mailOptions = {
+							from: "The DCQ <question@thedcq.com>",
+							to: ent.mail,
+							subject: "Your Daily Question! :)",
+						};
 						if (err) throw err;
 						adp = data.toString();
 						mailOptions.html = adp;
@@ -108,3 +117,4 @@ exports.init = dbSetup;
 exports.addPremium = addPremium;
 exports.sendMails = sendMails;
 exports.clickedSubscribe = clickedSubscribe;
+exports.traficCount = siteTraficAdd;

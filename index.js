@@ -76,6 +76,7 @@ async function main() {
 	});
 	app.get("/activate", handlers.activatePremium(db));
 	app.get("/", (req, res) => {
+		databaseInt.traficCount(db);
 		fs.readFile("index.html", "utf8", function(err, data) {
 			if (err) throw err;
 			adp = data.toString();
@@ -107,6 +108,7 @@ async function main() {
 		} else res.send("Wrong username/password");
 	});
 	app.get("/solution", (req, res) => {
+		databaseInt.traficCount(db);
 		dif = req.query.difficulty;
 		name = req.query.name;
 		user = req.query.mail;
