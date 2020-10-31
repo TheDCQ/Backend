@@ -104,50 +104,47 @@ function siteTraficAdd(rdb) {
 	});
 }
 
-function sendMails(rdb) {
+async function sendMails(rdb) {
 	rdb.collection("problems").findOne({}, function(err, result) {
-		rdb.collection("users")
-			.find()
-			.forEach(function(ent) {
-				console.log("Mail sent to : ", ent.mail);
+		users = rdb.collection("users").find();
+		fs.readFile(
+			"Problemset/" + result.difficulty + "/" + result.name,
+			"utf8",
+			function(err, data) {
+				users.forEach((ent, index, array) => {
+					var mail = nodemailer.createTransport({
+						host: "mini.axigen.com",
+						port: 587,
+						secure: false,
+						auth: {
+							user: "question@thedcq.com",
+							pass: "o5t5d43c",
+						},
+					});
 
-				fs.readFile(
-					"Problemset/" + result.difficulty + "/" + result.name,
-					"utf8",
-					function(err, data) {
-						var mail = nodemailer.createTransport({
-							host: "mini.axigen.com",
-							port: 587,
-							secure: false,
-							auth: {
-								user: "question@thedcq.com",
-								pass: "o5t5d43c",
-							},
-						});
-
-						var mailOptions = {
-							from: "The DCQ <question@thedcq.com>",
-							to: ent.mail,
-							subject: "Your Daily Question! :)",
-						};
-						if (err) throw err;
-						adp = data.toString();
-						mailOptions.html = adp;
-						mail.sendMail(mailOptions, function(error, info) {
-							if (error) {
-								console.log(error);
-							} else {
-								console.log("Email sent: " + info.response);
-							}
-						});
-					}
-				);
-
+					var mailOptions = {
+						from: "The DCQ <question@thedcq.com>",
+						to: ent.mail,
+						subject: "Your Daily Question! :)",
+					};
+					if (err) throw err;
+					adp = data.toString();
+					mailOptions.html = adp;
+					console.log();
+					mail.sendMail(mailOptions, function(error, info) {
+						if (error) {
+							console.log(error);
+						} else {
+							console.log("Email sent: " + info.response);
+						}
+					});
+				});
 				rdb.collection("problems").deleteOne(
 					{ name: result.name, difficulty: result.difficulty },
 					function(err, res) {}
 				);
-			});
+			}
+		);
 	});
 }
 

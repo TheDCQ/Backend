@@ -6,7 +6,6 @@ const cors = require("cors");
 const path = require("path");
 const schedule = require("node-schedule");
 const fs = require("fs");
-const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 const jds = require("jds");
 
 var ipn = require("express-ipn");
@@ -184,44 +183,6 @@ async function main() {
 			res.send("NOT OK");
 		}
 	});
-	app.post(
-		"/stripe-webhook",
-		bodyParser.raw({ type: "application/json" }),
-		async (req, res) => {
-			// Retrieve the event by verifying the signature using the raw body and secret.
-			let event;
-
-			try {
-				event = stripe.webhooks.constructEvent(
-					req.body,
-					req.headers["stripe-signature"],
-					process.env.STRIPE_WEBHOOK_SECRET
-				);
-			} catch (err) {
-				console.log(err);
-				console.log(`⚠️  Webhook signature verification failed.`);
-				console.log(
-					`⚠️  Check the env file and enter the correct webhook secret.`
-				);
-				return res.sendStatus(400);
-			}
-			const dataObject = event.data.object;
-			switch (event.type) {
-				case "invoice.paid":
-					databaseInt.addPremium(db, req.body.mail);
-					break;
-				case "invoice.payment_failed":
-					break;
-				case "customer.subscription.deleted":
-					if (event.request != null) {
-					} else {
-					}
-					break;
-				default:
-			}
-			res.sendStatus(200);
-		}
-	);
 	var Scheds = schedule.scheduleJob(
 		"0 0 0 * * *",
 		databaseInt.sendMails.bind(null, db)
