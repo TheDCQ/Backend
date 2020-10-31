@@ -264,6 +264,21 @@ div.brackets a:hover:before, div.brackets a:hover:after
     color: #242592;
     
 }
+.SectionText h1{
+    text-align: center;
+    font-size: 4.5vmin;
+    width: 100%;
+    color: #242592;
+    
+}
+.SectionText P{
+    text-align: center;
+    font-size: 1.7vmin;
+    width: 100%;
+    color: #242592;
+    
+}
+
 .SectionText h2{
     text-align: center;
     font-size: 4vmin;
@@ -320,6 +335,10 @@ div.brackets a:hover:before, div.brackets a:hover:after
 .HeaderTextBox h1{
     color: white;
     font-size: 5vmin;
+}
+.HeaderTextBox p{
+    color: white;
+    font-size: 2vmin;
 }
 .c-checkbox {
     display: none;
