@@ -53,7 +53,9 @@ async function main() {
 		});
 		res.send("ok");
 	});
-	app.use("/", express.static(path.join(__dirname, "Public")));
+	app.use("/v1", express.static(path.join(__dirname, "Public")));
+	app.use("/", express.static(path.join(__dirname, "PublicNew")));
+
 	app.get("/clickedSubscribe", handlers.vladSubscribe(db));
 	app.get("/subscribe", handlers.subscribe(db));
 	app.get("/unsubscribe", handlers.unsubscribe(db));
