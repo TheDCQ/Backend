@@ -1,0 +1,90 @@
+/*!
+ * Start Bootstrap - Landing Page v5.0.8 (https://startbootstrap.com/themes/landing-page)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-landing-page/blob/master/LICENSE)
+ */body{font-family:Lato,'Helvetica Neue',Helvetica,Arial,sans-serif}h1,h2,h3,h4,h5,h6{font-family:Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700}header.masthead{position:relative;background-color:#150485;background-size:cover;padding-top:8rem;padding-bottom:8rem}header.masthead .overlay{position:absolute;background-color:#150485;height:100%;width:100%;top:0;left:0;opacity:.3}header.masthead h1{font-size:2rem}@media (min-width:768px){header.masthead{padding-top:12rem;padding-bottom:12rem}header.masthead h1{font-size:3rem}}.showcase .showcase-text{padding:3rem}.showcase .showcase-img{min-height:30rem;background-size:cover}@media (min-width:768px){.showcase .showcase-text{padding:7rem}}.features-icons{padding-top:7rem;padding-bottom:7rem}.features-icons .features-icons-item{max-width:20rem}.features-icons .features-icons-item .features-icons-icon{height:7rem}.features-icons .features-icons-item .features-icons-icon i{font-size:4.5rem}.features-icons .features-icons-item:hover .features-icons-icon i{font-size:5rem}.testimonials{padding-top:7rem;padding-bottom:7rem}.testimonials .testimonial-item{max-width:18rem}.testimonials .testimonial-item img{max-width:12rem;box-shadow:0 5px 5px 0 #adb5bd}.call-to-action{position:relative;background-color:#343a40;background:url(../img/bg-masthead.jpg) no-repeat center center;background-size:cover;padding-top:7rem;padding-bottom:7rem}.call-to-action .overlay{position:absolute;background-color:#212529;height:100%;width:100%;top:0;left:0;opacity:.3}footer.footer{padding-top:4rem;padding-bottom:4rem}
+ section.pricing {
+    background: #150485;
+    background: linear-gradient(to bottom ,#150485, #150485);
+  }
+  
+  .pricing .card {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .pricing hr {
+    margin: 1.5rem 0;
+  }
+  
+  .pricing .card-title {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+  }
+  
+  .pricing .card-price {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .pricing .card-price .period {
+    font-size: 0.8rem;
+  }
+  
+  .pricing ul li {
+    margin-bottom: 1rem;
+  }
+  
+  .pricing .text-muted {
+    opacity: 0.7;
+  }
+  
+  .pricing .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    opacity: 0.7;
+    transition: all 0.2s;
+  }
+  
+  /* Hover Effects on Card */
+  
+  @media (min-width: 992px) {
+    .pricing .card:hover {
+      margin-top: -2rem;
+      margin-bottom: 2rem;
+      transform: scale(1.05);
+      box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.479);
+    }
+    .pricing .card:hover .btn {
+      opacity: 1;
+    }
+    .image2{
+      border-radius: 40px; border:1px solid #150485 !important; transform: matrix3d(0.98,0,-0.17,+0.0002,0.00,1,0.00,0,0.17,0,0.98,0,0,0,0,1);
+            -webkit-transform: matrix3d(0.98,0,-0.17,+0.0002,0.00,1,0.00,0,0.17,0,0.98,0,0,0,0,1);
+            -webkit-box-shadow: -17px 12px 21px 6px rgba(0,0,0,0.49); 
+            box-shadow: -17px 12px 21px 6px rgba(0,0,0,0.49);
+            
+    }
+    .image1{
+      border-radius: 40px; border:1px solid #150485 !important; transform: matrix3d(0.98,0,-0.17,-0.0002,0.00,1,0.00,0,0.17,0,0.98,0,0,0,0,1);
+            -webkit-transform: matrix3d(0.98,0,-0.17,-0.0002,0.00,1,0.00,0,0.17,0,0.98,0,0,0,0,1);
+            -webkit-box-shadow: 17px 12px 21px 6px rgba(0,0,0,0.49); 
+            box-shadow: 17px 12px 21px 6px rgba(0, 0, 0, 0.301);
+    }
+  }
+
+  .image2{
+    border-radius: 40px; border:1px solid #150485 !important; 
+    
+  }
+  .image1{
+    border-radius: 40px; border:1px solid #150485 !important; 
+
+  }

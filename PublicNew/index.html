@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>The DCQ</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="../PublicNew/css/landing-page.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg static-top" style="background-color: #150485 !important;text-align: center !important; display: block !important; float: none !important;">
+    <div class="container" style="text-align: center !important; display: block !important; float: none !important;">
+      <a class="navbar-brand" href="#" style="text-align: center !important; display: block !important; float: none !important;">
+           <h1 style="font-weight: 400 !important;font-size: 2rem !important; font-family: raleway !important; color: white;text-align: center !important; display: block !important; float: none !important; ">The Daily Coding Question</h1>
+          </a>
+     
+    </div>
+  </nav>
+  
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-5 mt-5 mx-auto" style="text-align:middle !important;align-items: center;" >
+          <h1 class="mb-5 mt-5" style="font-weight:400 !important; font-size: 2rem;">CS problems.<br>
+            Directly in your inbox.</h1>
+            <form>
+              <div class="form-row" >
+                <div class="col-12 col-md-8 mb-2 mb-md-0 pr-1 pl-1">
+                  <input type="email" id = "emailaddress" class="form-control form-control-lg" placeholder="enter your email..." style="border-radius: 5px !important; border: none !important;" >
+                </div>
+                <div class="col-12 col-md-4 pr-1 pl-1">
+                  <button type="submit" onclick= "Subs()" class="btn btn-block btn-lg btn-primary" style="background-color: #03c4a1 !important; outline: none !important; border: none !important; border-radius: 5px !important;">Subscribe</button>
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="col-lg-3 mx-auto mt-0">
+         <img src="img/firstil.png" class="img-fluid" >
+        </div>
+        
+      </div>
+    </div>
+  </header>
+
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 pr-0">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-notebook m-auto text-primary" style="color: #150485 !important;"></i>
+            </div>
+            <h3>Competitive Programming            </h3>
+            <p class="lead mb-0">Up your rating on Codeforces, CodeChef, Timus and many other platforms and become a master of algorithms and data structures. Problems for every level.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 pl-4 pr-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-organization m-auto text-primary" style="color: #150485 !important;"></i>
+            </div>
+            <h3>Interview <br>Questions            </h3>
+            <p class="lead mb-0">Prepare for incoming interviews at FANG or Start-ups. Real life problems given in recent years during practical interviews. Impress your examinator with your technical proficiency.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-puzzle m-auto text-primary" style="color: #150485 !important;"></i>
+            </div>
+            <h3>Data Structures Knowledge            </h3>
+            <p class="lead mb-0">Queue, Deque, Linked List, Stack, BST, Heap, Trie. Are you confused yet? You wont be in 30 days time. Get a deeper understanding of these structures and learn how to use them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Showcases -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters" >
+        <div class="col-xl-6 order-lg-1 my-auto showcase-text" >
+          <h2>Practice makes perfect.</h2>
+          <p class="lead mb-0">This is how the problems you receive every day will look like</p>
+        </div>
+        <div class="col-xl-5 order-lg-2 pr-5 pl-5 mt-5  text-white showcase-img">
+          <img class="img-fluid image1" src="img/mailtemp2.png"></div>
+       
+      </div>
+      
+      <div class="row no-gutters">
+        <div class="col-xl-6 my-auto showcase-text order-lg-2">
+          <h2>Practice every day then.</h2>
+          <p class="lead mb-0">And this is how the solutions will look like</p>
+        </div>
+        <div class="col-xl-5 ml-3 pr-5 pl-5 mb-5 text-white showcase-img order-lg-1">
+          <img class="img-fluid image2" src="img/Sol.png" >
+          </div>
+        
+      
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials text-center bg-light">
+    <div class="container">
+      <h2 class="mb-5">What people are saying...</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="img/3964906.jpg" alt="">
+            <h5>Margaret E.</h5>
+            <p class="font-weight-light mb-0">"It seems that a possible explanation
+              could've made this problem a bit easier.
+              But idk I didnt know radix sort!!"</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="img/4002785.jpg" alt="">
+            <h5>Fred S.</h5>
+            <p class="font-weight-light mb-0">"All the problems are amazing!"</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="img/3190343.jpg" alt="">
+            <h5>Sarah W.</h5>
+            <p class="font-weight-light mb-0">"Really appreciate the fact that you
+              actually work upon suggestions, great
+              work and thanks for the site! :)"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--
+  <section class="pricing py-5">
+    <div class="container">
+      <div class="row">
+      
+        <div class="col-lg-4 pl-3 pr-3">
+          <div class="card mb-5 mb-lg-0" style="transform: matrix3d(0.98,0,-0.17,+0.0002,0.00,1,0.00,0,0.17,0,0.98,0,0,0,0,1);
+          -webkit-transform: matrix3d(0.98,0,-0.17,+0.0002,0.00,1,0.00,0,0.17,0,0.98,0,0,0,0,1);">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
+              <h6 class="card-price text-center">$0<span class="period">/month</span></h6>
+              <hr>
+              <ul class="fa-ul">
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Single User</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>5GB Storage</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Unlimited Private Projects</li>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated Phone Support</li>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Free Subdomain</li>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
+              </ul>
+              <a href="#" class="btn btn-block btn-primary text-uppercase" style="background-color: #03c4a1 !important; outline: none !important; border: none !important;">Button</a>
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-lg-4 pl-3 pr-3">
+          <div class="card mb-5 mb-lg-0">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Plus</h5>
+              <h6 class="card-price text-center">$9<span class="period">/month</span></h6>
+              <hr>
+              <ul class="fa-ul">
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>5 Users</strong></li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>50GB Storage</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Free Subdomain</li>
+                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
+              </ul>
+              <a href="#" class="btn btn-block btn-primary text-uppercase" style="background-color: #03c4a1 !important; outline: none !important; border: none !important;">Button</a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-lg-4 pl-3 pr-3">
+          <div class="card" style="transform: matrix3d(0.98,0,-0.17,-0.0002,0.00,1,0.00,0,0.17,0,0.98,0,0,0,0,1);
+          -webkit-transform: matrix3d(0.98,0,-0.17,-0.0002,0.00,1,0.00,0,0.17,0,0.98,0,0,0,0,1);">
+            <div class="card-body">
+              <h5 class="card-title text-muted text-uppercase text-center">Pro</h5>
+              <h6 class="card-price text-center">$49<span class="period">/month</span></h6>
+              <hr>
+              <ul class="fa-ul">
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited Users</strong></li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>150GB Storage</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Private Projects</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Dedicated Phone Support</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Unlimited</strong> Free Subdomains</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Monthly Status Reports</li>
+              </ul>
+              <a href="#" class="btn btn-block btn-primary text-uppercase" style="background-color: #03c4a1 !important; outline: none !important; border: none !important;">Button</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+-->
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; The DCQ 2020. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "/visit", false);
+    xhr.send(null);
+    function Subs() {
+      var xhr = new XMLHttpRequest();
+      xhr.open(
+        "GET",
+        "/subscribe?mail=" +
+          document.getElementById("Email").value +
+          "&difficulty=medium",
+        false
+      );
+      xhr.send(null);
+}
+</script>
+</body>
+
+</html>
