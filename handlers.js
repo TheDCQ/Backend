@@ -1,3 +1,4 @@
+const { application } = require("express");
 const databaseInt = require("./database");
 
 function subscribeHandler(db) {
@@ -13,6 +14,20 @@ function subscribeHandler(db) {
 			false
 		);
 		res.send("OK");
+	};
+}
+function getDay(db) {
+	return function(req, res) {
+		reqObj = req.body;
+		db.collection("dailyTraffic").findOne({date : req.query.date} , function(err, data){
+			if(data != null){
+			res.writeHead(200 , {"Content-Type" : "application/json"});
+			res.write(JSON.stringify({value : data.value}));
+			res.send();
+			console.log(data.value);
+			}
+		})
+		
 	};
 }
 
@@ -54,3 +69,4 @@ exports.activatePremium = activatePremiumUserHandler;
 exports.ipn = ipnHandler;
 exports.adminPage = adminHandler;
 exports.vladSubscribe = vladSubscribe;
+exports.getDaily = getDay;

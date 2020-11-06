@@ -102,7 +102,9 @@ function siteTraficAdd(rdb) {
 			(err, data) => {}
 		);
 	});
+	
 }
+
 
 async function sendMails(rdb) {
 	rdb.collection("problems").findOne({}, function(err, result) {

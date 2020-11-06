@@ -1,0 +1,17 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <label for="email">Your mail</label><br>
+  <input type="email" id="email" name="email" ><br>
+  <button onclick="UnsubscribeButtonClick()"> Unsubscribe </button>
+    <script>
+        function UnsubscribeButtonClick()
+        {
+            link = "https://thedcq.com/unsubscribe?mail=" + document.getElementById('email').value;
+             window.location.href = link;
+        }
+    </script>
+    </body>
+</html>

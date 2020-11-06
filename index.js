@@ -43,6 +43,29 @@ async function main() {
 	);
 	app.use(express.json());
 	app.use(cors());
+	async function getDaily(){
+		let data2 = new Date().toISOString().slice(0, 10);
+		const found = await db.collection("dailyTraffic").findOne({date:data2} , function(err, data){
+			if(err || data == null)
+			{
+				db.collection("dailyTraffic").insertOne(
+					{date: data2 , value: 0},
+					(err, data) => {}
+				);
+			}
+			else
+			db.collection("dailyTraffic").findOne({date:data2} , function(err, data){
+				db.collection("dailyTraffic").updateOne(
+					{},
+					{ 	$set: { value: data.value + 1}},
+					(err, data) => {}
+				);
+			});
+		});
+		
+		
+		
+	}
 	app.get("/visit", (req, res) => {
 		db.collection("vladProst2").findOne({}, function(err, data) {
 			db.collection("vladProst2").updateOne(
@@ -51,6 +74,8 @@ async function main() {
 				(err, data) => {}
 			);
 		});
+		
+		getDaily();
 		res.send("ok");
 	});
 	app.use("/v1", express.static(path.join(__dirname, "Public")));
@@ -59,6 +84,7 @@ async function main() {
 	app.get("/clickedSubscribe", handlers.vladSubscribe(db));
 	app.get("/subscribe", handlers.subscribe(db));
 	app.get("/unsubscribe", handlers.unsubscribe(db));
+	app.get("/dailyTraffic" ,handlers.getDaily(db));
 	app.get("/unsubcribeUser", (req, res) => {
 		req.send(`<html>
 		<head>
@@ -99,6 +125,14 @@ async function main() {
 	app.get("/", (req, res) => {
 		databaseInt.traficCount(db);
 		fs.readFile("index.html", "utf8", function(err, data) {
+			if (err) throw err;
+			adp = data.toString();
+			res.send(adp);
+		});
+	});
+	app.get("/adminData", (req, res) => {
+		
+		fs.readFile("adminData.html", "utf8", function(err, data) {
 			if (err) throw err;
 			adp = data.toString();
 			res.send(adp);
