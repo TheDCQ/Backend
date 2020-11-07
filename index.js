@@ -225,10 +225,10 @@ async function main() {
 			res.send("NOT OK");
 		}
 	});
-	/*var Scheds = schedule.scheduleJob(
+	var Scheds = schedule.scheduleJob(
 		"0 0 0 * * *",
 		databaseInt.sendMails.bind(null, db)
-	);*/
+	);
 	var httpsServer = https.createServer(credentials, app);
 	var httpServer = http.createServer(appHttp);
 	http.createServer(app).listen(8080);
