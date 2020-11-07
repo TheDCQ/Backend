@@ -80,7 +80,7 @@ async function main() {
 	});
 	app.use("/v1", express.static(path.join(__dirname, "Public")));
 	app.use("/", express.static(path.join(__dirname, "PublicNew")));
-
+	app.use("/blog" , express.static(path.join(__dirname , "Public" , "blog")));
 	app.get("/clickedSubscribe", handlers.vladSubscribe(db));
 	app.get("/subscribe", handlers.subscribe(db));
 	app.get("/unsubscribe", handlers.unsubscribe(db));
@@ -130,6 +130,11 @@ async function main() {
 			res.send(adp);
 		});
 	});
+
+	app.get("/blog" , (req, res) => {
+		res.sendFile(path.join(__dirname,"Public","blog","index.html"));
+	}
+	)
 	app.get("/adminData", (req, res) => {
 		
 		fs.readFile("adminData.html", "utf8", function(err, data) {
@@ -145,6 +150,7 @@ async function main() {
 			res.send(adp);
 		});
 	});
+	
 	app.post("/submit-form", (req, res) => {
 		const username = req.body.username;
 		const password = req.body.password;
