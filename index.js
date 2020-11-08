@@ -48,19 +48,24 @@ async function main() {
 		const found = await db.collection("dailyTraffic").findOne({date:data2} , function(err, data){
 			if(err || data == null)
 			{
+				console.log("1");
 				db.collection("dailyTraffic").insertOne(
 					{date: data2 , value: 0},
-					(err, data) => {}
+					(err, data) =>
+					
+					 {}
 				);
 			}
-			else
-			db.collection("dailyTraffic").findOne({date:data2} , function(err, data){
+			else{
+				console.log("1");
+			db.collection("dailyTraffic").findOne({date:data2} , function(err, datax){
 				db.collection("dailyTraffic").updateOne(
 					{},
-					{ 	$set: { value: data.value + 1}},
+					{ 	$set: { value: datax.value + 1}},
 					(err, data) => {}
 				);
 			});
+		}
 		});
 		
 		
