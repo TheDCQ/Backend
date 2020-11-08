@@ -105,61 +105,43 @@
 		</svg>
 		<div class="Title">
 			<h1>Problem of the day</h1>
-			<!-- Aici nu modifici nimic sa imi sugi pula vlad-->
-			<h2>One Array</h2>
-			<!-- Aici pui numele problemei si tu , tudor-->
+			<h2>Close Permutations</h2>
+			
 		</div>
 		<div class="Explanation">
 			<h1>Explanation</h1>
 			<p>
-				Let's understand how players should act.
-				<br>
-				<br>
-				Vasya needs to delete the first digit that is not equal to 8, because the first digit of telephone number should be 8, and the first digit not equal to 8 is preventing it.
-				<br>
-				<br>
-				Petya needs to delete the first digit equal to 8, for the same reasons.
-				<br>
-				So, all that we need to do is delete first \(n−112\) digits not equal to 8 (if they exist), and first n−112 digits equal to 8 (again if they exist). It's enough to stop when there is either no 8's left or no non-8's because the latter moves won't change the result of the game anyway. Finally, if first digit of resulting string is 8, then Vasya wins, otherwise Petya.
-				<br>
-				<br>
-				Overall complexity: \(O(n)\).
+				Let's iterate on \(m\) — the number of indices such that \(pi ≠ i\). Obviously, \(0 ≤ m ≤ k\).
+				<br><br>
+				How to count the number of permutations with fixed m? First of all, we need to choose the indices that have the property \(pi ≠ i\) — there are  \( {n \choose m}\)ways to do this. Secondly, we need to construct a permutation q for chosen indices such that for every chosen index \(qi ≠ i\); permutations with this property are called derangements, and the number of derangements of fixed size can be calculated using exhaustive search (since m ≤ 4).
+				<br><br>
+				So the answer is \( \sum_{m=0}^{k} {n \choose m} d(m) \) , where \(d(m)\) is the number of derangements of size m.
 			</p>
 		</div>
 		<div class="Source">
 			<pre><code class="cpp" style="border-radius: 20px; background-color: #242592; margin: 1%;">
 				#include&lt;cstdio&gt;
-				int eights[100001];
-				int main()
-				{
-					int n , digit;
-					scanf("%d" , &n);
-					int k = 0;
-					for(int i = 1; i &lt;= n ; i ++)
-					{
-						scanf("%1d" , &digit);
-						if(digit == 8){
-							eights[++k] = i;
-						}
-					}
-					int moves = n - 11;
-					moves /= 2;
-					if(k &lt;= moves){
-						printf("NO");
-						return 0;
-					}
-					if(eights[moves + 1] &gt; 2 * moves + 1)
-					{
-						printf("NO");
-						return 0;
-					}
-					printf("YES");
-					return  0;
-				}
+				long long v[1005][1005];
+				int f[] = {1, 0, 1, 2, 9, 44, 265};
+				int main(){
+				  int n,k;
+				  scanf("%d%d",&n,&k);
+				 for(int i = 0; i &lt;= n; ++i)
+						v[i][0] = v[i][i] = 1;
+				 
+					for(int i = 2; i &lt;= n; ++i)
+						for(int j = 1; j &lt; i; ++j)
+							v[i][j] = v[i-1][j-1] + v[i-1][j];
+					long long ans = 0;
+				 
+					for(int i = k; i &gt;= 0; i--)
+						ans += v[n][n-i] * f[i];
+				 
+					printf("%lld",ans);
+				  }
             </code></pre>
 		</div>
-	
-		<iframe style="position:relative; top: 40%; margin-left: 15%; " src="https://docs.google.com/forms/d/e/1FAIpQLSfad1Z6IHvYnnGhpv9D19Yopro9YBb6kgtW7mQHYauZ36ZaAA/viewform?embedded=true" width="640" height="1037" frameborder="0" marginheight="0" marginwidth="0">Se încarcă…</iframe>
+		<iframe style="position:relative; top: 40%; margin-left: 15%; "src="https://docs.google.com/forms/d/e/1FAIpQLSePXkPrZv8puu1aBDaBmIe9ayymZoL9WvxzqmoZzhV2ot1drg/viewform?embedded=true" width="640" height="1037" frameborder="0" marginheight="0" marginwidth="0">Se încarcă…</iframe>
 		<script>
 			
 					var xhr = new XMLHttpRequest();
