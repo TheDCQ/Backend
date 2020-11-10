@@ -105,40 +105,90 @@
 		</svg>
 		<div class="Title">
 			<h1>Problem of the day</h1>
-			<h2>Close Permutations</h2>
+			<h2>Max Sum</h2>
 			
 		</div>
 		<div class="Explanation">
 			<h1>Explanation</h1>
 			<p>
-				Let's iterate on \(m\) — the number of indices such that \(pi ≠ i\). Obviously, \(0 ≤ m ≤ k\).
+				In this problem the sensible thing to do is to count the amount of times we are going to add some index of this sequence; <br>Then the maximal number gets assigned to the index that is added the most, and so on. In order to count the amount of times we referenced each index, we can use the Binary Indexed Tree structure to store cumulative sums with update and retreival times of \(O(log n)\) 
+				<br>
+				(a great tutorial for this structure can be found here: <a href ="http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees" style="color: whitesmoke;">http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees) </a>.
 				<br><br>
-				How to count the number of permutations with fixed m? First of all, we need to choose the indices that have the property \(pi ≠ i\) — there are  \( {n \choose m}\)ways to do this. Secondly, we need to construct a permutation q for chosen indices such that for every chosen index \(qi ≠ i\); permutations with this property are called derangements, and the number of derangements of fixed size can be calculated using exhaustive search (since m ≤ 4).
-				<br><br>
-				So the answer is \( \sum_{m=0}^{k} {n \choose m} d(m) \) , where \(d(m)\) is the number of derangements of size m.
+				Time complexity: \(O(n log n)\)
+				<br>
+				Memory complexity: \(O(n)\).
 			</p>
 		</div>
 		<div class="Source">
 			<pre><code class="cpp" style="border-radius: 20px; background-color: #242592; margin: 1%;">
-				#include&lt;cstdio&gt;
-				long long v[1005][1005];
-				int f[] = {1, 0, 1, 2, 9, 44, 265};
-				int main(){
-				  int n,k;
-				  scanf("%d%d",&n,&k);
-				 for(int i = 0; i &lt;= n; ++i)
-						v[i][0] = v[i][i] = 1;
+				#include &lt;stdio.h&gt;
+				#include &lt;math.h&gt;
+				#include &lt;string.h&gt;
+				#include &lt;iostream&gt;
+				#include &lt;vector&gt;
+				#include &lt;list&gt;
+				#include &lt;string&gt;
+				#include &lt;algorithm&gt;
+				#include &lt;queue&gt;
+				#include &lt;stack&gt;
+				#include &lt;set&gt;
+				#include &lt;map&gt;
+				#include &lt;complex&gt;
+				#define MAX_N 300001
+				using namespace std;
+				typedef long long lld;
 				 
-					for(int i = 2; i &lt;= n; ++i)
-						for(int j = 1; j &lt; i; ++j)
-							v[i][j] = v[i-1][j-1] + v[i-1][j];
-					long long ans = 0;
+				int n,q,x,y;
+				lld ret = 0LL;
 				 
-					for(int i = k; i &gt;= 0; i--)
-						ans += v[n][n-i] * f[i];
+				lld niz[MAX_N];
+				lld new_niz[MAX_N];
 				 
-					printf("%lld",ans);
-				  }
+				lld tree[MAX_N];
+				void update(int x, lld val)
+				{
+					while (x &lt;= n)
+					{
+						tree[x] += val;
+						x += (x & -x);
+					}
+				}
+				lld read(int x)
+				{
+					int sum=0;
+					while (x&gt;0)
+					{
+						sum+=tree[x];
+						x -= (x & -x);
+					}
+					return sum;
+				}
+				 
+				int main()
+				{
+					scanf("%d%d",&n,&q);
+					for (int i=0;i&lt;n;i++) scanf("%I64d",&niz[i]);
+					sort(niz,niz+n);
+					while (q--)
+					{
+						scanf("%d%d",&x,&y);
+						update(x,1);
+						update(y+1,-1);
+					}
+					for (int i=1;i&lt;=n;i++)
+					{
+						new_niz[i-1] = read(i);
+						//printf("%d. %d\n",i, new_niz[i-1]);
+					}
+					sort(new_niz,new_niz+n);
+					for (int i=n-1;i&gt;=0;i--)
+					{
+						ret += niz[i] * new_niz[i];
+					}
+					cout &lt;&lt; ret &lt;&lt; endl;
+					return 0;
+				}
             </code></pre>
 		</div>
 		<iframe style="position:relative; top: 40%; margin-left: 15%; "src="https://docs.google.com/forms/d/e/1FAIpQLSePXkPrZv8puu1aBDaBmIe9ayymZoL9WvxzqmoZzhV2ot1drg/viewform?embedded=true" width="640" height="1037" frameborder="0" marginheight="0" marginwidth="0">Se încarcă…</iframe>
