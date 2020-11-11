@@ -24,6 +24,8 @@
           href="https://fonts.googleapis.com/css?family=Raleway" type="text/css">
 
   <!-- Custom styles for this template -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <link href="css/landing-page.min.css" rel="stylesheet">
 
 </head>
@@ -31,12 +33,24 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg static-top" style="background-color: #150485 !important;text-align: center !important; display: block !important; float: none !important;">
-    <div class="container" style="text-align: center !important; display: block !important; float: none !important;">
-      <a class="navbar-brand" href="#" style="text-align: center !important; display: block !important; float: none !important;">
-           <h1 style="font-weight: 400 !important;font-size: 2rem !important; font-family: raleway !important; color: white;text-align: center !important; display: block !important; float: none !important; ">The Daily Coding Question</h1>
-          </a>
-     
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#" style="font-size: 1.5rem;">The Daily Coding Question</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-right justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" style="font-size: 1.1rem;" >Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog" style="font-size: 1.1rem;">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#prices" style="font-size: 1.1rem;">Pricing</a>
+        </li>
+        
+      </ul>
     </div>
   </nav>
   
@@ -55,6 +69,9 @@
                 </div>
                 <div class="col-12 col-md-4 pr-1 pl-1">
                   <button type="submit" onclick= "Subs()" class="btn btn-block btn-lg btn-primary" style="background-color: #03c4a1 !important; outline: none !important; border: none !important; border-radius: 5px !important;">Subscribe</button>
+                </div>
+                <div class="alert col-12 alert-success mt-3" role="alert" style="display: none;" id = "confirmationSuccess">
+                  You have been subscribed!
                 </div>
               </div>
             </form>
@@ -160,7 +177,7 @@
       </div>
     </div>
   </section>
-  <section class="pricing py-5">
+  <section class="pricing py-5" id = "prices">
     <div class="container">
       <div class="row">
       
@@ -182,7 +199,7 @@
                 <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Books & Lectures recommendations</li>
                 
               </ul>
-              <button href="#" id= "buton1" class="btn btn-block btn-primary text-uppercase" style="background-color: #03c4a1 !important; outline: none !important; border: none !important;">Button</button>
+              <button href="#" id= "buton1" class="btn btn-block btn-primary text-uppercase" style="background-color: #03c4a1 !important; outline: none !important; border: none !important;">Subscribe for free</button>
             </div>
           </div>
         </div>
@@ -204,7 +221,7 @@
               
               </ul>
               
-              <button  id= "buton2" class="btn btn-block btn-primary text-uppercase" style="background-color: #03c4a1 !important; outline: none !important; border: none !important;" onclick="updBtn(0);">Button</button>
+              <button  id= "buton2" class="btn btn-block btn-primary text-uppercase" style="background-color: #03c4a1 !important; outline: none !important; border: none !important;" onclick="updBtn(0);">Buy now</button>
             </div>
           </div>
         </div>
@@ -227,7 +244,7 @@
 
              
               </ul>
-              <button  id= "buton3" class="btn btn-block btn-primary text-uppercase" style="background-color: #03c4a1 !important; outline: none !important; border: none !important;" onclick="updBtn(1);">Button</button>
+              <button  id= "buton3" class="btn btn-block btn-primary text-uppercase" style="background-color: #03c4a1 !important; outline: none !important; border: none !important;" onclick="updBtn(1);">Buy now</button>
             </div>
           </div>
         </div>
@@ -305,6 +322,9 @@
     xhr.open('GET', "/visit", false);
     xhr.send(null);
     function Subs() {
+      
+      document.getElementById("confirmationSuccess").style.display = "inline-block";
+      
       var xhr = new XMLHttpRequest();
       xhr.open(
         "GET",
@@ -313,6 +333,8 @@
           "&difficulty=medium",
         false
       );
+      
+
       xhr.send(null);
 }
 </script>
