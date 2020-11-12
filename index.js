@@ -193,6 +193,22 @@ async function main() {
 			);
 		else res.status(404).send("File doesn't exist");
 	});
+
+	app.get("/statement", (req, res) => {
+		dif = req.query.difficulty;
+		name = req.query.name;
+		if (fs.existsSync("Problemset/" + dif + "/" + name))
+			fs.readFile(
+				"Problemset/" + dif + "/" + name + "_sol",
+				"utf8",
+				function(err, data) {
+					if (err) throw err;
+					adp = data.toString();
+					res.send(adp);
+				}
+			);
+		else res.status(404).send("File doesn't exist");
+	});
 	app.post("/addProblem", (req, res) => {
 		if (req.body.password == "TPWcwmgMMhf7JbLE") {
 			if (
