@@ -199,7 +199,7 @@ async function main() {
 		name = req.query.name;
 		if (fs.existsSync("Problemset/" + dif + "/" + name))
 			fs.readFile(
-				"Problemset/" + dif + "/" + name + "_sol",
+				"Problemset/" + dif + "/" + name ,
 				"utf8",
 				function(err, data) {
 					if (err) throw err;
