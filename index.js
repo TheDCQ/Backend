@@ -128,8 +128,10 @@ async function main() {
 		);
 	});
 	app.get("/", (req, res) => {
+
 		databaseInt.traficCount(db);
-		fs.readFile("index.html", "utf8", function(err, data) {
+		console.log("ok");
+		fs.readFile(path.join(__dirname,"PublicNew","index.html"), "utf8", function(err, data) {
 			if (err) throw err;
 			adp = data.toString();
 			res.send(adp);
@@ -204,6 +206,15 @@ async function main() {
 					name: req.body.num,
 					difficulty: req.body.difficulty,
 				});
+				db.collection("problemlist").updateOne({name:"list"},
+							{
+								$push:{
+									problems:{
+										name:req.body.num,
+										difficulty:req.body.difficulty
+									}
+								}
+							});
 				fs.writeFile(
 					"Problemset/" + req.body.difficulty + "/" + req.body.num,
 					req.body.enunt,
