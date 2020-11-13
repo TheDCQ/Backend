@@ -105,90 +105,49 @@
 		</svg>
 		<div class="Title">
 			<h1>Problem of the day</h1>
-			<h2>Max Sum</h2>
+			<h2>Flowers</h2>
 			
 		</div>
 		<div class="Explanation">
 			<h1>Explanation</h1>
 			<p>
-				In this problem the sensible thing to do is to count the amount of times we are going to add some index of this sequence; <br>Then the maximal number gets assigned to the index that is added the most, and so on. In order to count the amount of times we referenced each index, we can use the Binary Indexed Tree structure to store cumulative sums with update and retreival times of \(O(log n)\) 
-				<br>
-				(a great tutorial for this structure can be found here: <a href ="http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees" style="color: whitesmoke;">http://community.topcoder.com/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees) </a>.
-				<br><br>
-				Time complexity: \(O(n log n)\)
-				<br>
-				Memory complexity: \(O(n)\).
+				We can notate each string as a binary string, instead of red and white flowers. <br>A string of this type is good only if every maximal contigous subsequence of "0" has the length divisible by k.<br><br> We can make dynamic programming this way : \(nri\) = the number of good strings of length \(i\).<br> If the i-th character is "1" then we can have any character before and if the i-th character is "0" we must have another \(k - 1\) "0" characters before, so \(nri = nri - 1 + nri - k\) for \(i ≥ k\) and \(nri = 1\) for \(i < k\). Then we compute the partial sums \((sumi = nr1 + nr2 + ... + nri)\) and for each query the result will be \(sumb - suma - 1\). <br><br> This solution has the complexity \(O(maxVal + t)\), where \(maxVal\) is the maximum value of \(bi\).
 			</p>
 		</div>
 		<div class="Source">
 			<pre><code class="cpp" style="border-radius: 20px; background-color: #242592; margin: 1%;">
-				#include &lt;stdio.h&gt;
-				#include &lt;math.h&gt;
-				#include &lt;string.h&gt;
-				#include &lt;iostream&gt;
-				#include &lt;vector&gt;
-				#include &lt;list&gt;
-				#include &lt;string&gt;
-				#include &lt;algorithm&gt;
-				#include &lt;queue&gt;
-				#include &lt;stack&gt;
-				#include &lt;set&gt;
-				#include &lt;map&gt;
-				#include &lt;complex&gt;
-				#define MAX_N 300001
-				using namespace std;
-				typedef long long lld;
-				 
-				int n,q,x,y;
-				lld ret = 0LL;
-				 
-				lld niz[MAX_N];
-				lld new_niz[MAX_N];
-				 
-				lld tree[MAX_N];
-				void update(int x, lld val)
-				{
-					while (x &lt;= n)
-					{
-						tree[x] += val;
-						x += (x & -x);
-					}
-				}
-				lld read(int x)
-				{
-					int sum=0;
-					while (x&gt;0)
-					{
-						sum+=tree[x];
-						x -= (x & -x);
-					}
-					return sum;
-				}
-				 
+				#include&lt;cstdio&gt;
+				const int MOD = 1000000007;
+				long long dp[100005];
+				long long sum[100005];
 				int main()
 				{
-					scanf("%d%d",&n,&q);
-					for (int i=0;i&lt;n;i++) scanf("%I64d",&niz[i]);
-					sort(niz,niz+n);
-					while (q--)
-					{
-						scanf("%d%d",&x,&y);
-						update(x,1);
-						update(y+1,-1);
-					}
-					for (int i=1;i&lt;=n;i++)
-					{
-						new_niz[i-1] = read(i);
-						//printf("%d. %d\n",i, new_niz[i-1]);
-					}
-					sort(new_niz,new_niz+n);
-					for (int i=n-1;i&gt;=0;i--)
-					{
-						ret += niz[i] * new_niz[i];
-					}
-					cout &lt;&lt; ret &lt;&lt; endl;
-					return 0;
+				  long long t , k;
+				  long long a, b;
+				  dp[1] = 1;
+				  dp[0] = 1;
+				  scanf("%lld%lld" , &amp;t , &amp;k);
+				  sum[1] = 1;
+				  for(int i = 2; i &lt;= 100000 ; i ++)
+				  {
+					dp[i] = dp[i - 1] + dp[i - k] + MOD;
+					dp[i] %= MOD;
+					sum[i] = sum[i - 1] + dp[i] + MOD;
+					sum[i] %= MOD;
+				  }
+				  for(int i = 1; i &lt;= t; i ++)
+				  {
+					scanf("%lld%lld" , &amp;a, &amp;b);
+					if(k != 1)
+					printf("%lld\n" , (2 * MOD  + sum[b] - sum[a - 1]) % MOD);
+					else
+					printf("%lld\n" , ((2 * MOD  + sum[b] - sum[a - 1]) % MOD ) * 2 % MOD);
+				 
+				  }
+				 
 				}
+				
+				
             </code></pre>
 		</div>
 		<iframe style="position:relative; top: 40%; margin-left: 25%; margin-right: auto; "src="https://docs.google.com/forms/d/e/1FAIpQLSePXkPrZv8puu1aBDaBmIe9ayymZoL9WvxzqmoZzhV2ot1drg/viewform?embedded=true" width="960" height="1037" frameborder="0" marginheight="0" marginwidth="0">Se încarcă…</iframe>
