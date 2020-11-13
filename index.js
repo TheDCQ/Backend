@@ -91,7 +91,7 @@ async function main() {
 	app.get("/unsubscribe", handlers.unsubscribe(db));
 	app.get("/dailyTraffic" ,handlers.getDaily(db));
 	app.get("/unsubcribeUser", (req, res) => {
-		req.send(`<html>
+		res.send(`<html>
 		<head>
 	
 		</head>
