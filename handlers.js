@@ -11,7 +11,8 @@ function subscribeHandler(db) {
 			Date.now(),
 			0,
 			req.query.difficulty,
-			false
+			false,
+			req.query.refid
 		);
 		res.send("OK");
 	};

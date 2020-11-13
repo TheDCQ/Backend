@@ -326,7 +326,7 @@
       document.getElementById("confirmationSuccess").style.display = "inline-block";
       
       var xhr = new XMLHttpRequest();
-      var refid = window.location.search.split("=")[1]
+      var refid = window.location.search.split("=")[1];
       if(refid == undefined)
       xhr.open(
         "GET",
@@ -341,7 +341,7 @@
         "GET",
         "/subscribe?mail=" +
           document.getElementById("emailaddress").value +
-          "&difficulty=medium" + "?refid=" + refid,
+          "&difficulty=medium" + "&refid=" + refid,
           
         false
       );

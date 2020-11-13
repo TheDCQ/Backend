@@ -90,8 +90,8 @@ async function main() {
 	app.get("/subscribe", handlers.subscribe(db));
 	app.get("/unsubscribe", handlers.unsubscribe(db));
 	app.get("/dailyTraffic" ,handlers.getDaily(db));
-	app.get("/unsubcribeUser", (req, res) => {
-		req.send(`<html>
+	app.get("/unsubscribeUser", (req, res) => {
+		res.send(`<html>
 		<head>
 	
 		</head>
@@ -128,8 +128,10 @@ async function main() {
 		);
 	});
 	app.get("/", (req, res) => {
+
 		databaseInt.traficCount(db);
-		fs.readFile("index.html", "utf8", function(err, data) {
+		console.log("ok");
+		fs.readFile(path.join(__dirname,"PublicNew","index.html"), "utf8", function(err, data) {
 			if (err) throw err;
 			adp = data.toString();
 			res.send(adp);
@@ -191,6 +193,22 @@ async function main() {
 			);
 		else res.status(404).send("File doesn't exist");
 	});
+
+	app.get("/statement", (req, res) => {
+		dif = req.query.difficulty;
+		name = req.query.name;
+		if (fs.existsSync("Problemset/" + dif + "/" + name))
+			fs.readFile(
+				"Problemset/" + dif + "/" + name ,
+				"utf8",
+				function(err, data) {
+					if (err) throw err;
+					adp = data.toString();
+					res.send(adp);
+				}
+			);
+		else res.status(404).send("File doesn't exist");
+	});
 	app.post("/addProblem", (req, res) => {
 		if (req.body.password == "TPWcwmgMMhf7JbLE") {
 			if (
@@ -204,6 +222,15 @@ async function main() {
 					name: req.body.num,
 					difficulty: req.body.difficulty,
 				});
+				db.collection("problemlist").updateOne({name:"list"},
+							{
+								$push:{
+									problems:{
+										name:req.body.num,
+										difficulty:req.body.difficulty
+									}
+								}
+							});
 				fs.writeFile(
 					"Problemset/" + req.body.difficulty + "/" + req.body.num,
 					req.body.enunt,

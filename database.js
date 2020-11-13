@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer");
 const fs = require("fs");
-const { MongoClient } = require("mongodb");
+const mongooid=require("mongodb").ObjectID;
+const { MongoClient, ObjectID } = require("mongodb");
 const ejs = require("ejs");
 const path = require("path");
 const url =
@@ -15,7 +16,7 @@ async function dbSetup() {
 	return [db, client];
 }
 
-function addUserToDB(rdb, mail, expiration, problem, difficulty, premium) {
+function addUserToDB(rdb, mail, expiration, problem, difficulty, premium,refid) {
 	idins = rdb.collection("users").insertOne(
 		{
 			mail: mail,
@@ -23,11 +24,17 @@ function addUserToDB(rdb, mail, expiration, problem, difficulty, premium) {
 			activated: false,
 			difficulty: difficulty,
 			premium: premium,
+			inivted:0,
+			monthsfree:0,
+			remainingdays:7
 		},
 		(err, res) => {
 			if (err) console.log(err);
-			else sendConfirmationMail(rdb, res.insertedId, mail);
-		}
+			else {
+				if(refid=="" || refid==undefined);
+				else addReferal(rdb,refid);
+				sendConfirmationMail(rdb, res.insertedId, mail);
+		}}
 	);
 }
 
@@ -105,6 +112,20 @@ function siteTraficAdd(rdb) {
 	
 }
 
+function addReferal(rdb,refid){
+	if(mongooid.isValid(refid)){
+		
+		rdb.collection("users").updateOne({_id:ObjectID(refid)},{$inc:{inivted:1}},(err)=>{
+			if(err)console.log(err);
+		});
+		rdb.collection("users").findOne({_id:ObjectID(refid)},(err,data)=>{
+			if(data.inivted%3==0)
+			rdb.collection("users").updateOne({_id:ObjectID(refid)},{$inc:{remainingdays:30}},(err)=>{
+				if(err)console.log(err);
+			});
+		});
+	}
+}
 
 async function sendMails(rdb) {
 	rdb.collection("problems").findOne({}, function(err, result) {
@@ -157,3 +178,4 @@ exports.addPremium = addPremium;
 exports.sendMails = sendMails;
 exports.clickedSubscribe = clickedSubscribe;
 exports.traficCount = siteTraficAdd;
+exports.addReferal =addReferal;
