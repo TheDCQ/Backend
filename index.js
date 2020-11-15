@@ -7,6 +7,7 @@ const path = require("path");
 const schedule = require("node-schedule");
 const fs = require("fs");
 const jds = require("jds");
+var xml = require('xml');
 
 var ipn = require("express-ipn");
 const handlers = require("./handlers");
@@ -175,6 +176,11 @@ async function main() {
 			});
 		} else res.send("Wrong username/password");
 	});
+	app.get("/sitemap",(req,res)=>{
+		res.set("Content-Type","text/xml")
+	
+		res.sendFile(path.join(__dirname,"sitemap.xml"));
+	});
 	app.get("/solution", (req, res) => {
 		databaseInt.traficCount(db);
 		dif = req.query.difficulty;
@@ -257,10 +263,7 @@ async function main() {
 			res.send("NOT OK");
 		}
 	});
-	var Scheds = schedule.scheduleJob(
-		"0 0 0 * * *",
-		databaseInt.sendMails.bind(null, db)
-	);
+
 	var httpsServer = https.createServer(credentials, app);
 	var httpServer = http.createServer(appHttp);
 	http.createServer(app).listen(8080);
